@@ -41,7 +41,7 @@ class DeviseCreateHackers < ActiveRecord::Migration
       t.string :shirt_size
       t.text :dietary_restrictions
       t.string :interests, array: true, default: []
-      t.integer :status
+      t.integer :status, null: false, default: 0
 
       t.timestamps
     end

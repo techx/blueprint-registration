@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150102062733) do
     t.string   "shirt_size"
     t.text     "dietary_restrictions"
     t.string   "interests",              default: [],                 array: true
-    t.integer  "status"
+    t.integer  "status",                 default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

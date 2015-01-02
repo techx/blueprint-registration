@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :hackers
+
+  post "sign_in" => "devise/sessions#create", as: :hacker_session
+  delete "sign_out" => "devise/sessions#destroy", as: :destroy_hacker_session
+  devise_for :hackers, :skip => [:registrations, :sessions]
+  post "sign_up" => "sanitizer#create", as: :hacker_registration
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root "home#index"
+  root "registration#home"
+  get "hacker/sign_up" => "registration#hacker_sign_up", as: :hacker_sign_up
+  get "mentor/sign_up" => "registration#mentor_sign_up", as: :mentor_sign_up
+  get "apply" => "registration#apply"
+  post "apply" => "registration#update"
+  get "status" => "registration#status"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
