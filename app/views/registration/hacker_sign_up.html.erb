@@ -1,2 +1,18 @@
-<h1>Registration#hacker_sign_up</h1>
-<p>Find me in app/views/registration/hacker_sign_up.html.erb</p>
+<h1>Hacker Sign Up</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <%= f.hidden_field :mentor, value: "0" %>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>

@@ -41,8 +41,9 @@ class RegistrationController < ApplicationController
 
 	#update the user's application
 	def update
-		current_hacker.update_attributes(params)
+		current_hacker.update_attributes(params[:hacker])
 		current_hacker.status = 1 if current_hacker.status == 0
+		redirect_to status_path
 	end
 
 
