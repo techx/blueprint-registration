@@ -3,6 +3,8 @@ class SanitizerController < Devise::RegistrationsController
 
   def create
     super
+    @user.team_code = SecureRandom.hex
+    @user.save!
     HackerMailer.welcome(@user).deliver unless @user.invalid?
   end
 
