@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   get "apply" => "registration#apply"
   post "apply" => "registration#update"
   get "status" => "registration#status"
-  get "team" => "registrations#team_view"
-  post "team/join" => "registrations#team_join"
-  delete "team/leave" => "registrations#team_leave"
+  get "team" => "registration#team_view", as: :team
+  post "team/join" => "registration#team_join", as: :team_join
+  delete "team/leave" => "registration#team_leave", as: :team_leave
 
 
 

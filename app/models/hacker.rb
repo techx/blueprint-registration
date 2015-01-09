@@ -8,4 +8,12 @@ class Hacker < ActiveRecord::Base
     first_name and last_name and phone and school and shirt_size
   end
 
+  def team_available?
+    application_complete? and not mentor?
+  end
+
+  def name
+    first_name + " " + last_name
+  end
+
 end

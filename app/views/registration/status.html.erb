@@ -2,3 +2,4 @@
 
 <%= link_to('Edit your application', apply_path) %>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
+<%= link_to('View your team', team_path) if current_hacker.team_available? %>
