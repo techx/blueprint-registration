@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102062733) do
+ActiveRecord::Schema.define(version: 20150109023000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150102062733) do
     t.integer  "status",                 default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "team_code"
   end
 
   add_index "hackers", ["confirmation_token"], name: "index_hackers_on_confirmation_token", unique: true, using: :btree
