@@ -1,18 +1,22 @@
-<h1>Hacker Sign Up</h1>
+<h1>Team Page</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= link_to('Back', status_path) %><br />
+<%= link_to('Leave Team', team_leave_path, :method => :delete) %><br />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div>Your team code: <span><%= current_hacker.team_code %></span></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<h2>Your Team:</h2>
+<ul>
+<% @team_hackers.each do |hacker| %>
+  <li><%= hacker.name %></li>
+<% end %>
+</ul>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<%= form_for(current_hacker, {as: :hacker, url: team_join_path, method: :post}) do |f| %>
 
-  <%= f.hidden_field :mentor, value: "0" %>
+  <div><%= f.label :team_code, "Team Code" %><br />
+  <%= f.text_field :team_code %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Join Team!" %></div>
+
 <% end %>

@@ -2,7 +2,7 @@ class RegistrationController < ApplicationController
 
   before_filter :home_if_not_logged_in, except: [:home, :hacker_sign_up, :mentor_sign_up]
   before_filter :status_if_logged_in, only: [:home, :hacker_sign_up, :mentor_sign_up]
-  before_filter :status_if_logged_in_and_incomplete_application, only: [:team_view, :team_leave, :team_join]
+  before_filter :status_unless_team_available, only: [:team_view, :team_leave, :team_join]
 
   #### FILTERS ####
 
@@ -14,8 +14,8 @@ class RegistrationController < ApplicationController
     redirect_to root_url unless hacker_signed_in?
   end
 
-  def status_if_logged_in_and_incomplete_application
-    redirect_to status_url unless current_hacker.application_complete?
+  def status_unless_team_available
+    redirect_to status_url unless current_hacker.team_available?
   end
 
   #### VIEW METHODS ####
@@ -61,10 +61,14 @@ class RegistrationController < ApplicationController
 
   def team_leave
     current_hacker.team_code = SecureRandom.hex
+    current_hacker.save!
+    redirect_to team_url
   end
 
   def team_join
     current_hacker.team_code = hacker_params["team_code"] || SecureRandom.hex
+    current_hacker.save!
+    redirect_to team_url
   end
 
   private

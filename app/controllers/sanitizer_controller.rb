@@ -2,10 +2,13 @@ class SanitizerController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, :only => [:create]
 
   def create
-    super
-    @user.team_code = SecureRandom.hex
-    @user.save!
-    HackerMailer.welcome(@user).deliver unless @user.invalid?
+    result = super
+    if !resource.invalid?
+      resource.team_code = SecureRandom.hex
+      resource.save!
+      HackerMailer.welcome(resource).deliver unless resource.invalid?
+    end
+    result
   end
 
   protected
