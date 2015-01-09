@@ -3,12 +3,19 @@
 <head>
   <title>BlueprintRegistration</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag	 'application', '//fonts.googleapis.com/css?family=Rokkitt:400,700|Open+Sans:400,700' %>
+
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<% if notice %>
+	<p class="ui warning message"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	<p class="ui negative message"><%= alert %></p>
+	<% end %>
 	<%= yield %>
 </body>
 </html>
