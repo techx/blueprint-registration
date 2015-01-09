@@ -3,6 +3,7 @@ class SanitizerController < Devise::RegistrationsController
 
   def create
     super
+    HackerMailer.welcome(@user).deliver unless @user.invalid?
   end
 
   protected
