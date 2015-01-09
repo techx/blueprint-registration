@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get "apply" => "registration#apply"
   post "apply" => "registration#update"
   get "status" => "registration#status"
+  get "team" => "registrations#team_view"
+  post "team/join" => "registrations#team_join"
+  delete "team/leave" => "registrations#team_leave"
+
 
 
   # Example of regular route:
