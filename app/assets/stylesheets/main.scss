@@ -1,0 +1,15 @@
+//
+// Don't use Sprocket's directives! It's a mess.
+// Since we're using multiple scss files, take advantage of @import instead.
+// Allows us to create a global namespace and organize files better (~VV)
+// [see http://guides.rubyonrails.org/asset_pipeline.html]
+// [note: newly generated stylesheets will need to be manually imported here]
+//
+
+// Base
+@import "mixins.scss";
+@import "base.scss";
+
+// Specific Styles
+@import "registration.scss";
+

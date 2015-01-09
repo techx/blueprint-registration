@@ -1,5 +1,37 @@
-<h1>Blueprint Registration</h1>
+<section id="splash">
+<div class="ui dimmer">
+  <div class="content">
+    <div class="center">
+      <h2 class="ui inverted icon header">
+        <i class="red heart icon"></i>
+        Thanks, we'll be in touch :)
+      </h2>
+    </div>
+  </div>
+</div>
 
+<div class="content">
+  <div class="identity">
+    <%= image_tag "logo-i.svg", :class => "logo" %>
+    <div class="title">Blueprint</div>
+  </div>
+
+  <div class="tagline">
+    Build your skills. Change the world.
+  </div>
+
+  <div class="date">
+    February 21 & 22 @ MIT
+  </div>
+
+  <div class="description">
+    Welcome to Blueprint &ndash; a two-day learnathon and hackathon for high school students held on MIT's campus. Meet MIT’s smartest students and experienced industry mentors as you join fellow peers in learning how to write impactful software &ndash; <i>no coding experience required</i>.
+    <br>
+    <br>
+    Want to know when registration opens?
+  </div>
+
+  <div class="action">
 <%= link_to "Hackers sign up here", hacker_sign_up_path %><br />
 <%= link_to "Mentors sign up here", mentor_sign_up_path %><br />
 
@@ -14,3 +46,257 @@
   <%= f.submit 'Sign in' %><br />
   <%= link_to "Forgot your password?", new_password_path(resource) %>
 <% end %>
+  </div>
+</div>
+</section>
+<section id="days">
+<div class="ui two column page stackable centered grid">
+  <div class="two column centered row">
+    <div class="column">
+      <div class="icon">
+        <i class="inverted circular idea yellow icon"></i>
+      </div>
+
+      <div class="header">
+        Learn
+      </div>
+      <div class="subheader">
+        Day 1 - Feb. 21st, 2015
+      </div>
+      <div class="subheader">
+        <i>Learnathon</i> @ <i>MIT Stata Center</i>
+      </div>
+      <div class="ui divider"></div>
+
+      <div class="description">
+        <p>
+          On <strong>February 21</strong>, <strong>100 high school students</strong> will join us in <strong>MIT's Stata Center</strong> for a whole day of learning how to write cool software &ndash; no experience necessary.
+        </p>
+        <p>
+          <strong>What is a <i>learnathon</i>?</strong>
+          <br>
+          Blueprint is MIT's first learnathon &ndash; a day of interactive classes and fun workshops designed to teach something new outside of a normal curriculum.
+        </p>
+        <p>
+          <strong>If you have never coded before, don’t worry!</strong> MIT students will teach and mentor you along the way
+          in our three tracks: iOS, Android, and Web Development.
+          At the start of the day, there will be sessions to help you install the right development tools and environments to start coding. The classes will be taught in an interactive lecture format and many mentors will be walking around to help guide you.
+        </p>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="icon">
+        <i class="inverted circular code blue icon"></i>
+      </div>
+      <div class="header">
+        Hack
+      </div>
+      <div class="subheader">
+        Day 2 - Feb. 22nd, 2015
+      </div>
+      <div class="subheader">
+        <i>Hackathon</i> @ <i>MIT Media Lab</i>
+      </div>
+      <div class="ui divider"></div>
+
+      <div class="description">
+        <p>
+          On <strong>February 22</strong>, about <strong>300 high school students</strong> will gather at <b>MIT’s Media Lab</b>
+          to create a project of their choice with a team of up to 4 people.
+        </p>
+        <p>
+          <strong>What is a <i>hackathon</i>?</strong>
+          <br>
+          A hackathon is an event where people collaborate to create cool apps and software projects!
+        </p>
+        <p>
+          Teams will be guided by student and industry mentors who are experienced in the field. At the end of the day, you will be able to see what your fellow students created and present your project to a panel of judges. There will many prizes, but most importantly we hope Blueprint is a rewarding hackathon experience for you!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+<section id="faq">
+<div class="header">
+  FAQ
+</div>
+<div class="ui stackable three column page grid">
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Is this an overnight event?
+      </div>
+      <div class="answer">
+        No. The Learnathon will be on Saturday, February 21 from around 9 am to 5 pm, and the Hackathon will be on February 22 from around 8 am to 8 pm. These times are approximations, and a final schedule will be released closer to the event date.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Where is Blueprint being held?
+      </div>
+      <div class="answer">
+        Blueprint will be held on MIT’s campus. The Learnathon will be held in the Ray and Maria Stata Center and the Hackathon will be held at the MIT Media Lab.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Who should come to Blueprint?
+      </div>
+      <div class="answer">
+        The <strong>Learnathon</strong> is designed for high school students who have little to no programming experience. We'll have classes to teach you all you ever wanted to learn, and you're automatically signed up for the Hackathon to put your skills to use. The <strong>Hackathon</strong> is for all high school students – if you want to make something awesome, sign up!
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Do I register for the Learnathon and Hackathon separately?
+      </div>
+      <div class="answer">
+        No. There will be an option on your registration application to indicate your interest in coming to the learnathon portion in addition to the hackathon.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        What if I don’t know how to code?
+      </div>
+      <div class="answer">
+        That’s perfectly fine! Definitely sign up for the Learnathon where you will sharpen your programming skills for the Hackathon!
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        How are participants chosen?
+      </div>
+      <div class="answer">
+        There will be a lottery process where we will randomly choose students in waves until capacity is filled.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        How does judging work?
+      </div>
+      <div class="answer">
+        You will have the opportunity to present your project to a panel of judges. In addition, you can exhibit your team's project and explore other creations at an end-of-the-day expo.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Are there any prizes?
+      </div>
+      <div class="answer">
+        Yes. Prizes have yet to be determined, but we promise a lot of them!
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Are there any recommended hotels I could stay at if I am from out of town?
+      </div>
+      <div class="answer">
+        A couple of hotels that are near MIT include
+        <a href="http://www.kendallhotel.com/">Kendall Hotel</a> and the
+        <a href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/">
+        Marriott.
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        What do I need to bring?
+      </div>
+      <div class="answer">
+        Bring your laptop if you have one, laptop charger, your signed waiver, and a photo ID of yourself with the same name you used in registration!
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Does Blueprint cost money?
+      </div>
+      <div class="answer">
+        No. Blueprint is free of charge, and includes meals, a Blueprint tshirt, and an unforgettable experience.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        What if I don’t have a laptop?
+      </div>
+      <div class="answer">
+        We will have some laptops available for you if you do not have a laptop. Indicate so on your application, and we will have it for you at check-in.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Is there travel reimbursement?
+      </div>
+      <div class="answer">
+        We are not providing travel reimbursements. Most attendees commute from the Greater Boston area, Massachusetts, and nearby states.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        Are my parents allowed to come with me?
+      </div>
+      <div class="answer">
+        After check-in, Blueprint is strictly for high school students only, but your parents can tune in to the livestream! We are grateful for your parents' support of our program.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        What if I don’t have a team formed beforehand?
+      </div>
+      <div class="answer">
+        No worries! Teams are not required but are highly recommended as they are a great way to meet new people or bond with friends! We’ll have a team formation event at the beginning of Blueprint to help you find partners.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        What food options will there be?
+      </div>
+      <div class="answer">
+        We will be providing all meals along with snacks for the duration of the event. We will also have food options for those with allergies or dietary restrictions.
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item">
+      <div class="question">
+        I have a question that’s not listed here. Who should I ask?
+      </div>
+      <div class="answer">
+        Send us an email at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>. We'll get back to you within hours.
+      </div>
+    </div>
+  </div>
+</div>
+</section>

@@ -10,7 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ * Note that we don't take full advantage of Sprockets by including the whole css tree.
+ * This is by design, to allow for a global namespace. See main.scss.
+ *
  *= require_self
  *= require semantic-ui
+ *= require normalize
+ *= require main
  */
