@@ -50,6 +50,18 @@ class RegistrationController < ApplicationController
     redirect_to status_path
   end
 
+  def team_view
+
+  end
+
+  def team_leave
+
+  end
+
+  def team_join
+
+  end
+
   private
 
   def hacker_params
