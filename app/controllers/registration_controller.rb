@@ -1,16 +1,21 @@
 class RegistrationController < ApplicationController
 
-  before_filter :redirect_to_home_if_not_logged_in, except: [:home, :hacker_sign_up, :mentor_sign_up]
-  before_filter :redirect_to_status_if_logged_in, only: [:home, :hacker_sign_up, :mentor_sign_up]
+  before_filter :home_if_not_logged_in, except: [:home, :hacker_sign_up, :mentor_sign_up]
+  before_filter :status_if_logged_in, only: [:home, :hacker_sign_up, :mentor_sign_up]
+  before_filter :status_if_logged_in_and_incomplete_application, only: [:team_view, :team_leave, :team_join]
 
   #### FILTERS ####
 
-  def redirect_to_status_if_logged_in
+  def status_if_logged_in
     redirect_to status_url if hacker_signed_in?
   end
 
-  def redirect_to_home_if_not_logged_in
+  def home_if_not_logged_in
     redirect_to root_url unless hacker_signed_in?
+  end
+
+  def status_if_logged_in_and_incomplete_application
+    redirect_to status_url unless current_hacker.application_complete?
   end
 
   #### VIEW METHODS ####
@@ -51,21 +56,21 @@ class RegistrationController < ApplicationController
   end
 
   def team_view
-
+    @team_hackers = Hacker.where(:team_code => current_hacker.team_code)
   end
 
   def team_leave
-
+    current_hacker.team_code = SecureRandom.hex
   end
 
   def team_join
-
+    current_hacker.team_code = hacker_params["team_code"] || SecureRandom.hex
   end
 
   private
 
   def hacker_params
-    params.require(:hacker).permit(:mentor, :first_name, :last_name, :phone, :school, :year, :emergency_info, :availability, :shirt_size, :dietary_restrictions, :interests)
+    params.require(:hacker).permit(:mentor, :first_name, :last_name, :phone, :school, :year, :emergency_info, :availability, :shirt_size, :dietary_restrictions, :interests, :team_code)
   end
 
 end
