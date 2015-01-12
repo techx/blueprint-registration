@@ -60,14 +60,14 @@ class RegistrationController < ApplicationController
   end
 
   def team_leave
-    current_hacker.team_code = SecureRandom.hex
+    current_hacker.team_code = TeamCode.generate!
     current_hacker.save!
     redirect_to team_url
   end
 
   def team_join
-    hex = hacker_params["team_code"] || SecureRandom.hex
-    if hex.match(/^[0-9a-f]{32}$/)
+    hex = hacker_params["team_code"] || TeamCode.generate!
+    if TeamCode.is_valid?(hex)
       current_hacker.team_code = hex
       current_hacker.save!
     end
