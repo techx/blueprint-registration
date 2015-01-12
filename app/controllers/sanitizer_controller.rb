@@ -4,7 +4,7 @@ class SanitizerController < Devise::RegistrationsController
   def create
     result = super
     if !resource.invalid?
-      resource.team_code = SecureRandom.hex
+      resource.team_code = TeamCode.generate!
       resource.save!
       HackerMailer.welcome(resource).deliver unless resource.invalid?
     end
