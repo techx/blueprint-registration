@@ -1,3 +1,59 @@
 // Place all the styles related to the Registration controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blueprint-blue: rgb(0,136,255);
+$blueprint-yellow: #f1e820;
+$font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
+$font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+body,
+html {
+  font-family: $font-body;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), url("/assets/bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.container {
+  padding-top: 15%;
+  width: 25%;
+  min-width: 288px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: $font-logo;
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  margin-bottom: 16px;
+}
+
+.content {
+  padding: 16px 16px;
+  border-radius: 2px;
+  border: 1px solid darken($blueprint-blue, 5%);
+  background: white;
+  text-align: center;
+
+  .title {
+    font-family: $font-logo;
+    font-size: 2.5em;
+    margin-bottom: 8px;
+  }
+
+  .button {
+    margin-bottom: 8px;
+  }
+
+  .field {
+    text-align: left;
+  }
+}

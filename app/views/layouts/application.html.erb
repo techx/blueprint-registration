@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlueprintRegistration</title>
+  <title>Blueprint | Register </title>
+  <meta name="viewport" content="initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href='//fonts.googleapis.com/css?family=Rokkitt:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<%= yield %>
+
+  <div class="container">
+    <div class="logo">
+      Blueprint
+    </div>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <% if notice %>
+    <p class="ui warning message"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="ui negative message"><%= alert %></p>
+    <% end %>
+  </div>
+
 </body>
 </html>

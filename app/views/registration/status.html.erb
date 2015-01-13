@@ -1,4 +1,6 @@
-<h1>Application Status Page</h1>
+<div class="title">
+  Status: <%= current_hacker.status %>
+</div>
 
 <%= link_to('Edit your application', apply_path) %>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
