@@ -9,7 +9,7 @@ class TeamCode
   end
 
   def self.team_full?(code)
-    return Hacker.where(:team_code => current_hacker.team_code).count >= 4
+    return Hacker.where(:team_code => code).count >= 4
   end
 
   def self.validate_code(code)
