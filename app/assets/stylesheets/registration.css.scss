@@ -12,17 +12,22 @@ html {
   font-family: $font-body;
   margin: 0;
   padding: 0;
-  height: 100%;
   width: 100%;
+}
+html {
+  height: 100%;
 }
 
 body {
   background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), url("/assets/bg.jpg") no-repeat center center;
+  background-attachment: fixed;
   background-size: cover;
+  min-height: 100%;
 }
 
 .main-container {
   padding-top: 15%;
+  padding-bottom: 15%;
   width: 25%;
   min-width: 288px;
   margin: 0 auto;
@@ -47,6 +52,9 @@ body {
     .field {
       text-align: left;
     }
+    .fields {
+      text-align: left;
+    }
   }
 }
 
@@ -57,5 +65,4 @@ body {
   font-size: 4em;
   margin-bottom: 16px;
 }
-
 
