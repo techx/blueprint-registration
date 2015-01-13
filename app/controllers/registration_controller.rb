@@ -56,7 +56,7 @@ class RegistrationController < ApplicationController
     current_hacker.interests = params["hacker"]["interests"] || []
     current_hacker.status = 1 if current_hacker.status == 0
     current_hacker.save!
-    flash[:alert] = "Success! Changes saved."
+    flash[:notice] = "Success! Changes saved."
     redirect_to status_path
   end
 
