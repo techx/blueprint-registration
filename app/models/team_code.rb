@@ -15,7 +15,7 @@ class TeamCode
   def self.validate_code(code)
     if not is_valid?(code)
       {valid: false, message: "Invalid team code."}
-    elsif not team_full?(code)
+    elsif team_full?(code)
       {valid: false, message: "Team is full."}
     else
       {valid: true, message: "Successfully joined team!"}
