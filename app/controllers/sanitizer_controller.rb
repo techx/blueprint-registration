@@ -1,12 +1,24 @@
 class SanitizerController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, :only => [:create]
 
+  def render(*args)
+
+  end
+
   def create
     result = super
-    if !resource.invalid?
+    if resource.valid?
       resource.team_code = TeamCode.generate!
       resource.save!
       HackerMailer.welcome(resource).deliver unless resource.invalid?
+    end
+    if resource.errors.any?
+      flash[:alert] = resource.errors.full_messages.sample
+      if params['hacker']['mentor'] == '1'
+        redirect_to mentor_sign_up_url
+      else
+        redirect_to hacker_sign_up_url
+      end
     end
     result
   end
