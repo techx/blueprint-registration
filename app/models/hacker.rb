@@ -16,4 +16,21 @@ class Hacker < ActiveRecord::Base
     first_name + " " + last_name
   end
 
+  def full_status
+    {
+      0 => {
+        impression: "negative",
+        title: "Submit your application!",
+        text: "You've created your account, but you haven't submitted anything yet! Please complete your application to be considered for admission.",
+        subtext: ""
+      },
+      1 => {
+        impression: "neutral",
+        title: "Application Submitted!",
+        text: "Your application has been submitted, but you can still edit it up until we release the first wave of decisions.",
+        subtext: "Don't forget to create a team if you have people in mind. We'll accept or deny teams as a whole."
+      }
+    }[status]
+  end
+
 end

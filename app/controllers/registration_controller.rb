@@ -87,7 +87,7 @@ class RegistrationController < ApplicationController
   private
 
   def hacker_params
-    params.require(:hacker).permit(:mentor, :first_name, :last_name, :phone, :school, :year, :emergency_info, :availability, :shirt_size, :dietary_restrictions, :interests, :team_code)
+    params.require(:hacker).permit(:mentor, :first_name, :last_name, :phone, :school, :year, :emergency_info, :availability, :shirt_size, :dietary_restrictions, :interests, :team_code, :desire, :experience)
   end
 
 end
