@@ -14,50 +14,66 @@
       </div>
   </div>
   <br>
+<% else %>
+  <%= link_to('Back', status_path) %>
 <% end %>
 
+<div class="ui form">
+  <%= form_for(current_hacker, {as: :hacker, url: apply_path, method: :post}) do |f| %>
 
-<%= link_to('Back', status_path) %>
+    <div class="field">
+      <%= f.label :first_name, "First Name" %>
+      <%= f.text_field :first_name %>
+    </div>
 
-<%= form_for(current_hacker, {as: :hacker, url: apply_path, method: :post}) do |f| %>
+    <div class="field">
+      <%= f.label :last_name, "Last Name" %>
+      <%= f.text_field :last_name %>
+    </div>
 
-  <div><%= f.label :first_name, "First Name" %>
-  <%= f.text_field :first_name %></div>
+    <div class="field">
+      <%= f.label :phone, "(Cell) Phone Number" %>
+      <%= f.telephone_field :phone %>
+    </div>
 
-  <div><%= f.label :last_name, "Last Name" %>
-  <%= f.text_field :last_name %></div>
+    <div class="field">
+      <%= f.label :school, (current_hacker.mentor? ? "College" : "High School") %>
+      <%= f.text_field :school %>
+    </div>
 
-  <div><%= f.label :phone, "(Cell) Phone Number" %>
-  <%= f.telephone_field :phone %></div>
+    <div class="field">
+      <%= f.label :year, "Graduation Year" %>
+      <%= f.number_field :year %>
+    </div>
 
-  <div><%= f.label :school, (current_hacker.mentor? ? "College" : "High School") %><br />
-  <%= f.text_field :school %></div>
+    <label>
+      Availability
+    </label>
+    <div class="grouped inline fields">
+      <% days.each do |day| %>
+        <div class="field">
+          <%= check_box_tag "hacker[availability][]", day[:value], current_hacker[:availability].include?(day[:value]), id: day[:value], class: 'ui checkbox' %>
+          <%= f.label "", day[:title], for: day[:value] %>
+        </div>
+      <% end %>
+    </div>
 
-  <div><%= f.label :year, "Graduation Year" %>
-  <%= f.number_field :year %></div>
+    <div>Shirt Size<br />
+    <% shirt_sizes.each do |size| %>
+      <%= radio_button_tag "hacker[shirt_size]", size, current_hacker[:shirt_size] == size %>
+      <%= f.label "", size %>
+    <% end %></div>
 
-  <div>Availability
-    <% days.each do |day| %>
-      <%= check_box_tag "hacker[availability][]", day[:value], current_hacker[:availability].include?(day[:value]) %>
-      <%= f.label "", day[:title] %>
-    <% end %>
-  </div>
+    <div><%= f.label :dietary_restrictions, "Dietary Restrictions" %><br />
+    <%= f.text_area :dietary_restrictions %></div>
 
-  <div>Shirt Size<br />
-  <% shirt_sizes.each do |size| %>
-    <%= radio_button_tag "hacker[shirt_size]", size, current_hacker[:shirt_size] == size %>
-    <%= f.label "", size %>
-  <% end %></div>
+    <div>Coding Interests<br />
+    <% interests.each do |interest| %>
+      <%= check_box_tag "hacker[interests][]", interest, current_hacker[:interests].include?(interest) %>
+      <%= f.label "", interest %><br />
+    <% end %></div>
 
-  <div><%= f.label :dietary_restrictions, "Dietary Restrictions" %><br />
-  <%= f.text_area :dietary_restrictions %></div>
+    <div><%= f.submit ((current_hacker.status == 0) ? "Submit your application!" : "Submit changes!") %></div>
 
-  <div>Coding Interests<br />
-  <% interests.each do |interest| %>
-    <%= check_box_tag "hacker[interests][]", interest, current_hacker[:interests].include?(interest) %>
-    <%= f.label "", interest %><br />
-  <% end %></div>
-
-  <div><%= f.submit ((current_hacker.status == 0) ? "Submit your application!" : "Submit changes!") %></div>
-
-<% end %>
+  <% end %>
+</div>
