@@ -8,16 +8,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Rokkitt:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
-  <div class="container">
+  <div class="main-container">
     <div class="logo">
       Blueprint
     </div>
-    <div class="content">
+    <div class="main-content">
       <%= yield %>
     </div>
     <% if notice %>
