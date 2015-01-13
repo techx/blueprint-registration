@@ -10,6 +10,10 @@
   <%= current_hacker.full_status[:subtext] %>
 </div><br />
 
+<div>
+  You applied as a <%= current_hacker.mentor? ? "Mentor" : "Hacker" %>
+</div><br />
+
 <%= link_to('Edit your application', apply_path) %>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
 <%= link_to('View your team', team_path) if current_hacker.team_available? %>
