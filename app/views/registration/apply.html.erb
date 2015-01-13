@@ -1,5 +1,5 @@
 <% if current_hacker.status == 0%>
-  <div class="ui two steps">
+  <div class="ui two stackable steps">
       <div class="completed step">
           <i class="payment icon"></i>
           <div class="content">
@@ -15,7 +15,12 @@
   </div>
   <br>
 <% else %>
-  <%= link_to('Back', status_path) %>
+  <br>
+  <p>
+    <a href="<%= status_path%>">
+      &#8592; Back
+    </a>
+  </p>
 <% end %>
 
 <div class="ui form">
@@ -46,34 +51,61 @@
       <%= f.number_field :year %>
     </div>
 
-    <label>
-      Availability
-    </label>
+    <div class="field">
+      <label>
+        Availability
+      </label>
+    </div>
+
+    <% days.each do |day| %>
+      <div class="field">
+        <div class="ui checkbox">
+          <%= check_box_tag "hacker[availability][]", day[:value], current_hacker[:availability].include?(day[:value]), id: "available#{day[:value]}" %>
+          <%= f.label "", day[:title], for: "available#{day[:value]}" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <label>
+        Shirt Size
+      </label>
+    </div>
+
     <div class="grouped inline fields">
-      <% days.each do |day| %>
+      <% shirt_sizes.each do |size| %>
         <div class="field">
-          <%= check_box_tag "hacker[availability][]", day[:value], current_hacker[:availability].include?(day[:value]), id: day[:value], class: 'ui checkbox' %>
-          <%= f.label "", day[:title], for: day[:value] %>
+          <div class="ui radio checkbox">
+            <%= radio_button_tag "hacker[shirt_size]", size, current_hacker[:shirt_size] == size , id: 'shirt'+size %>
+            <%= f.label "", size , for: 'shirt'+size%>
+          </div>
         </div>
       <% end %>
     </div>
 
-    <div>Shirt Size<br />
-    <% shirt_sizes.each do |size| %>
-      <%= radio_button_tag "hacker[shirt_size]", size, current_hacker[:shirt_size] == size %>
-      <%= f.label "", size %>
-    <% end %></div>
+    <div class="field">
+      <%= f.label :dietary_restrictions, "Dietary Restrictions" %>
+      <%= f.text_field :dietary_restrictions %>
+    </div>
 
-    <div><%= f.label :dietary_restrictions, "Dietary Restrictions" %><br />
-    <%= f.text_area :dietary_restrictions %></div>
-
-    <div>Coding Interests<br />
+    <div class="field">
+      <label>
+        Coding Interests
+      </label>
+    </div>
+    <div class="grouped inline fields">
     <% interests.each do |interest| %>
-      <%= check_box_tag "hacker[interests][]", interest, current_hacker[:interests].include?(interest) %>
-      <%= f.label "", interest %><br />
+      <div class="field">
+        <div class="ui checkbox">
+          <%= check_box_tag "hacker[interests][]", interest, current_hacker[:interests].include?(interest), id: interest %>
+          <%= f.label "", interest, for: interest %><br />
+        </div>
+      </div>
     <% end %></div>
 
-    <div><%= f.submit ((current_hacker.status == 0) ? "Submit your application!" : "Submit changes!") %></div>
+    <div class="field">
+      <%= f.submit ((current_hacker.status == 0) ? "Submit your application!" : "Submit changes!"), class: 'ui fluid yellow button' %>
+    </div>
 
   <% end %>
 </div>

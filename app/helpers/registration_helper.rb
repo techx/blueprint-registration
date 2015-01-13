@@ -5,7 +5,16 @@ module RegistrationHelper
   end
 
   def days
-    [{title: "Day 1", value: 0}, {title: "Day 2", value: 1}]
+    [
+      {
+          title: "Learn: Feb 21st",
+          value: 0
+      },
+      {
+          title: "Hack: Feb 22nd",
+          value: 1
+      }
+    ]
   end
 
   def shirt_sizes
