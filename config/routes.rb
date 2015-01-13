@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :hackers, :skip => [:registrations, :sessions]
   devise_scope :hacker do
-    post "sign_in" => "devise/sessions#create", as: :hacker_session
-    delete "sign_out" => "devise/sessions#destroy", as: :destroy_hacker_session
+    post "sign_in" => "session#create", as: :hacker_session
+    delete "sign_out" => "session#destroy", as: :destroy_hacker_session
     post "sign_up" => "sanitizer#create", as: :hacker_registration
   end
   # The priority is based upon order of creation: first created -> highest priority.
