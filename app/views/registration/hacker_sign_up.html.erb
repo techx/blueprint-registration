@@ -1,6 +1,19 @@
-<div class="title">
-  Hacker Sign Up
+<div class="ui two steps">
+  <div class="active step">
+    <i class="child icon"></i>
+    <div class="content">
+      <div class="title">Register as Hacker</div>
+    </div>
+  </div>
+  <div class="disabled step">
+    <i class="write icon"></i>
+    <div class="content">
+      <div class="title">Apply</div>
+    </div>
+  </div>
 </div>
+
+<br>
 
 <div class="ui form">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -16,15 +29,10 @@
       <%= f.password_field :password %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-
     <%= f.hidden_field :mentor, value: "0" %>
 
     <div class="field">
-      <%= f.submit "Sign up", class:'ui fluid yellow button' %>
+      <%= f.submit "Sign up", class: 'ui fluid yellow button' %>
     </div>
   <% end %>
 </div>

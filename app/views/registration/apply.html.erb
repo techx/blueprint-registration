@@ -1,4 +1,21 @@
-<h1>Application</h1>
+<% if current_hacker.status == 0%>
+  <div class="ui two steps">
+      <div class="completed step">
+          <i class="payment icon"></i>
+          <div class="content">
+              <div class="title">Registered</div>
+          </div>
+      </div>
+      <div class="active step">
+          <i class="write icon"></i>
+          <div class="content">
+              <div class="title">Apply</div>
+          </div>
+      </div>
+  </div>
+  <br>
+<% end %>
+
 
 <%= link_to('Back', status_path) %>
 
