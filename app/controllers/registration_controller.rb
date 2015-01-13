@@ -56,7 +56,7 @@ class RegistrationController < ApplicationController
     current_hacker.interests = params["hacker"]["interests"] || []
     current_hacker.status = 1 if current_hacker.status == 0
     current_hacker.save!
-    flast[:alert] = "Success! Changes saved."
+    flash[:alert] = "Success! Changes saved."
     redirect_to status_path
   end
 
@@ -67,18 +67,19 @@ class RegistrationController < ApplicationController
   def team_leave
     current_hacker.team_code = TeamCode.generate!
     current_hacker.save!
-    flast[:notice] = "Left the team."
+    flash[:notice] = "Left the team."
     redirect_to team_url
   end
 
   def team_join
     hex = hacker_params["team_code"] || TeamCode.generate!
-    if TeamCode.is_valid?(hex)
+    status = TeamCode.validate_code(hex)
+    if status[:valid]
       current_hacker.team_code = hex
       current_hacker.save!
-      flast[:notice] = "Successfully joined team!"
+      flash[:notice] = status[:message]
     else
-      flast[:alert] = "Invalid team code."
+      flash[:alert] = status[:message]
     end
     redirect_to team_url
   end
