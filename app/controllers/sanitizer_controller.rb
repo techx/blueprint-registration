@@ -19,8 +19,10 @@ class SanitizerController < Devise::RegistrationsController
       else
         redirect_to hacker_sign_up_url
       end
+    else
+      redirect_to status_url
+      result
     end
-    result
   end
 
   protected
