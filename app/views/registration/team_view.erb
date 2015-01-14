@@ -1,22 +1,53 @@
-<h1>Team Page</h1>
+<div id="team">
+  <br>
+  <p>
+    <a href="<%= status_path%>">
+      &#8592; Back
+    </a>
+  </p>
 
-<%= link_to('Back', status_path) %><br />
-<%= link_to('Leave Team', team_leave_path, :method => :delete) %><br />
+  <h2>
+    Your team code:
+  </h2>
+  <span class="ui massive blue label">
+    <%= current_hacker.team_code %>
+  </span>
 
-<div>Your team code: <span><%= current_hacker.team_code %></span></div>
+  <h2>
+      Your Team:
+  </h2>
 
-<h2>Your Team:</h2>
-<ul>
-<% @team_hackers.each do |hacker| %>
-  <li><%= hacker.name %></li>
-<% end %>
-</ul>
+  <div class="ui bulleted list">
+    <% @team_hackers.each do |hacker| %>
+      <span class="item">
+        <%= hacker.name %>
+      </span>
+    <% end %>
+  </div>
 
-<%= form_for(current_hacker, {as: :hacker, url: team_join_path, method: :post}) do |f| %>
+  <br>
 
-  <div><%= f.label :team_code, "Team Code" %><br />
-  <%= f.text_field :team_code, value: "" %></div>
+  <%= link_to('Leave Team', team_leave_path, :method => :delete, class: 'ui red button') %>
 
-  <div><%= f.submit "Join Team!" %></div>
+  <br>
 
-<% end %>
+  <div class="ui divider"></div>
+
+  <h1>
+      Join a team
+  </h1>
+  <div class="ui form">
+    <%= form_for(current_hacker, {as: :hacker, url: team_join_path, method: :post}) do |f| %>
+
+      <div class="field">
+        <%= f.label :team_code, "Team Code" %>
+        <%= f.text_field :team_code, value: "" %>
+      </div>
+
+      <div class="field">
+        <%= f.submit "Join Team!", class: 'ui fluid yellow button' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
