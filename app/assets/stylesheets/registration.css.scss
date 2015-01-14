@@ -91,4 +91,11 @@ and (max-width : 768px) {
     width: 75%;
   }
 
+  .step {
+    width: 100% !important;
+  }
+  .disabled.step, .completed.step {
+    display: none !important;
+  }
+
 }
