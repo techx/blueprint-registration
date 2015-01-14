@@ -14,6 +14,9 @@
   You applied as a <%= current_hacker.mentor? ? "mentor" : "hacker" %>.
 </div><br />
 
-<%= link_to('Edit your application', apply_path) %>
+<%= link_to('Edit your application', apply_path, class: 'ui blue button') %>
+<br>
+<%= link_to('Join or View Team', team_path, class: 'ui yellow button') if current_hacker.team_available? %>
+<br>
+<br>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
-<%= link_to('View your team', team_path) if current_hacker.team_available? %>

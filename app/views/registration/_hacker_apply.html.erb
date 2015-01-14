@@ -1,14 +1,15 @@
 <div class="ui form">
   <%= form_for(current_hacker, {as: :hacker, url: apply_path, method: :post}) do |f| %>
+    <div class="two fields">
+      <div class="field">
+        <%= f.label :first_name, "First Name" %>
+        <%= f.text_field :first_name %>
+      </div>
 
-    <div class="field">
-      <%= f.label :first_name, "First Name" %>
-      <%= f.text_field :first_name %>
-    </div>
-
-    <div class="field">
-      <%= f.label :last_name, "Last Name" %>
-      <%= f.text_field :last_name %>
+      <div class="field">
+        <%= f.label :last_name, "Last Name" %>
+        <%= f.text_field :last_name %>
+      </div>
     </div>
 
     <div class="field">
