@@ -5,12 +5,17 @@ Rails.application.routes.draw do
     post "sign_in" => "session#create", as: :hacker_session
     delete "sign_out" => "session#destroy", as: :destroy_hacker_session
     post "sign_up" => "sanitizer#create", as: :hacker_registration
+    get "reset" => "reset#new", as: :start_password_reset
+    post "reset" => "reset#create", as: :password_reset_lookup
+    get "recover" => "reset#edit", as: :change_hacker_password
+    post "recover" => "reset#update", as: :update_hacker_password
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root "registration#home", as: :root
+  get "/" => "registration#home", as: :new_hacker_session
   get "hacker/sign_up" => "registration#hacker_sign_up", as: :hacker_sign_up
   get "mentor/sign_up" => "registration#mentor_sign_up", as: :mentor_sign_up
   get "apply" => "registration#apply"
