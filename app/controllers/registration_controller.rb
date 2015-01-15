@@ -51,13 +51,19 @@ class RegistrationController < ApplicationController
 
   #update the user's application
   def update
-    current_hacker.update_attributes(hacker_params)
+    current_hacker.assign_attributes(hacker_params)
     current_hacker.availability = params["hacker"]["availability"] || []
     current_hacker.interests = params["hacker"]["interests"] || []
-    current_hacker.status = 1 if current_hacker.status == 0
-    current_hacker.save!
-    flash[:notice] = "Success! Changes saved."
-    redirect_to status_path
+    error = current_hacker.get_error
+    if error
+      flash[:alert] = error
+      render "apply"
+    else
+      flash[:notice] = "Success! Changes saved."
+      current_hacker.status = 1 if current_hacker.status == 0
+      current_hacker.save!
+      redirect_to status_path
+    end
   end
 
   def team_view

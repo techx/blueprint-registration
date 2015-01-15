@@ -33,4 +33,18 @@ class Hacker < ActiveRecord::Base
     }[status]
   end
 
+  def get_error
+    error = false
+    error = "First name is too short." if first_name.length < 1
+    error = "First name is too long." if first_name.length > 200
+    error = "Last name is too short." if last_name.length < 1
+    error = "Last name is too long." if last_name.length > 200
+    error = "School name is too short." if school.length < 1
+    error = "School name is too long." if school.length > 200
+    unless phone.match(/\A[+#*\(\)\[\]]*([0-9][ ext+-pw#*\(\)\[\]]*){6,45}\z/)
+      error = "Phone number is not valid."
+    end
+    error
+  end
+
 end
