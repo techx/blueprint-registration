@@ -5,13 +5,18 @@
       &#8592; Back
     </a>
   </p>
-
   <h2>
     Your team code:
   </h2>
   <span class="ui massive blue label">
     <%= current_hacker.team_code %>
   </span>
+
+  <p>
+
+  <p>
+  Invite friends to join your team by sharing your team code!
+  </p>
 
   <h2>
       Your Team:
@@ -36,6 +41,11 @@
   <h1>
       Join a team
   </h1>
+
+  <p>
+    To join a friend's team, type their code below:
+  </p>
+
   <div class="ui form">
     <%= form_for(current_hacker, {as: :hacker, url: team_join_path, method: :post}) do |f| %>
 
