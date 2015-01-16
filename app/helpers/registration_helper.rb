@@ -32,9 +32,9 @@ module RegistrationHelper
 
   def genders
     [
+      ["Prefer not to answer","no_answer"],
       ["Male","male"],
       ["Female","female"],
-      ["Prefer not to answer","no_answer"],
     ]
   end
 
