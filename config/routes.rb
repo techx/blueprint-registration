@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'errors/error'
+
+  %w( 404 422 500 ).each do |code|
+    get code, :to => "errors#error", :code => code
+  end
+
+
   devise_for :hackers, :skip => [:registrations, :sessions]
   devise_scope :hacker do
     post "sign_in" => "session#create", as: :hacker_session

@@ -1,13 +1,21 @@
 <div class="title">
-    Forgot Password?
+  Forgot Password?
 </div>
+
+<br>
+<p>
+  <a href="<%= root_path %>">
+    &#8592; Back
+  </a>
+</p>
+<br>
 
 <div class="ui form">
   <%= form_for(resource, as: resource_name, url: password_reset_lookup_url, html: { method: :post }) do |f| %>
 
     <div class="field">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true %></div>
+      <%= f.email_field :email, autofocus: true %>
     </div><br />
 
     <div class="field">
