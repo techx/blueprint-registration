@@ -87,5 +87,4 @@ Rails.application.configure do
     password: ENV['SMTP_PASSWORD'],
     authentication: :login,
   }
-  config.default_url_options[:host] = "apply.blueprint.hackmit.org"
 end
