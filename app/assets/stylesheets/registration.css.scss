@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), url("/assets/bg.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), image-url('bg.jpg') no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100%;
