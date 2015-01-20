@@ -15,8 +15,10 @@
 </div><br />
 
 <%= link_to('Edit your application', apply_path, class: 'ui blue button') %>
-<br>
-<%= link_to('Join or View Team', team_path, class: 'ui yellow button') if current_hacker.team_available? %>
-<br>
+<% if current_hacker.team_available? %>
+  <br>
+  <%= link_to('Join or View Team', team_path, class: 'ui yellow button') %>
+  <br>
+<% end %>
 <br>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>

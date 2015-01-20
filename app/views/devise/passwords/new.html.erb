@@ -2,13 +2,11 @@
   Forgot Password?
 </div>
 
-<br>
 <p>
   <a href="<%= root_path %>">
     &#8592; Back
   </a>
 </p>
-<br>
 
 <div class="ui form">
   <%= form_for(resource, as: resource_name, url: password_reset_lookup_url, html: { method: :post }) do |f| %>

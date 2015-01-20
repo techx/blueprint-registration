@@ -7,9 +7,7 @@ class HackerMailer < Devise::Mailer
   #   en.hacker_mailer.welcome.subject
   #
   def welcome(user)
-    @greeting = "hi"
-
-    mail to: "to@example.org", subject: "Hey"
+    mail to: user.email, subject: "[Blueprint] Thanks for registering!"
   end
 
 end
