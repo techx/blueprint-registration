@@ -28,13 +28,16 @@ class Hacker < ActiveRecord::Base
         impression: "neutral",
         title: "Application Submitted!",
         text: "Your application has been submitted, but you can still edit it up until we release the first wave of decisions.",
-        subtext: "Don't forget to create a team if you have people in mind. We'll accept or deny teams as a whole."
+        subtext: (mentor?) ? "" : "Don't forget to create a team if you have people in mind. We'll accept or deny teams as a whole."
       }
     }[status]
   end
 
   def get_error
     error = false
+    error = 'You must answer all short response questions.' if desire.length == 0 or experience.length == 0
+    error = 'You must select a T-Shirt size.' unless shirt_size
+    error = 'You must be able to come at least one of the days' if availability == []
     unless phone.match(/\A[+#*\(\)\[\]]*([0-9][ ext+-pw#*\(\)\[\]]*){6,45}\z/)
       error = "Phone number is not valid."
     end

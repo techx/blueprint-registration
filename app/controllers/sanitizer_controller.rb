@@ -13,7 +13,12 @@ class SanitizerController < Devise::RegistrationsController
       HackerMailer.welcome(resource).deliver unless resource.invalid?
     end
     if resource.errors.any?
-      flash[:alert] = resource.errors.full_messages.first
+      error = resource.errors.full_messages.first
+      flash[:alert] = error
+      if error.match("blank")
+        flash[:alert] = "Your password is too short" if params['hacker']['password'].length > 0
+        flash[:alert] = "Your password is too long" if params['hacker']['password'].length > 128
+      end
       if params['hacker']['mentor'] == '1'
         redirect_to mentor_sign_up_url
       else

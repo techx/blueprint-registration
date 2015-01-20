@@ -59,7 +59,7 @@ class RegistrationController < ApplicationController
       flash[:alert] = error
       render "apply"
     else
-      flash[:notice] = "Success! Changes saved."
+      flash[:notice] = "Success! Application saved."
       current_hacker.status = 1 if current_hacker.status == 0
       current_hacker.save!
       redirect_to status_path
