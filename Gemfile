@@ -38,5 +38,6 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 # gem 'debugger', group: [:development, :test]
 
 gem 'unicorn', group: [:production]
+gem 'rails_12factor', group: [:production]
 
 gem 'pry-rails', group: [:development, :test]
