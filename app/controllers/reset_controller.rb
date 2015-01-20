@@ -8,7 +8,7 @@ class ResetController < Devise::PasswordsController
       flash[:notice] = "We have sent password reset instructions to the address you provided."
       redirect_to root_url
     else
-      flash[:alert] = resource.errors.full_messages.sample
+      flash[:alert] = resource.errors.full_messages.first
       redirect_to start_password_reset_path
     end
   end
@@ -24,7 +24,7 @@ class ResetController < Devise::PasswordsController
       sign_in(resource_name, resource)
       respond_with resource, location: after_resetting_password_path_for(resource)
     else
-      flash[:alert] = resource.errors.full_messages.sample
+      flash[:alert] = resource.errors.full_messages.first
       redirect_to change_hacker_password_url(reset_password_token: resource_params['reset_password_token'])
     end
   end

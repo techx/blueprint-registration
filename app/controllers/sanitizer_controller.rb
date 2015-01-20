@@ -13,7 +13,7 @@ class SanitizerController < Devise::RegistrationsController
       HackerMailer.welcome(resource).deliver unless resource.invalid?
     end
     if resource.errors.any?
-      flash[:alert] = resource.errors.full_messages.sample
+      flash[:alert] = resource.errors.full_messages.first
       if params['hacker']['mentor'] == '1'
         redirect_to mentor_sign_up_url
       else
