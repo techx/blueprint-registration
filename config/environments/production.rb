@@ -92,6 +92,6 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true,
   }
-  config.action_mailer.asset_host = "apply.blueprint.hackmit.org"
+  config.action_mailer.asset_host = "http://apply.blueprint.hackmit.org"
   config.action_mailer.default_url_options = { host: 'apply.blueprint.hackmit.org' }
 end
