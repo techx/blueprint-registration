@@ -82,7 +82,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.smtp_settings = {
     address: ENV['SMTP_ADDRESS'],
-    port: 443,
+    port: 465,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
     authentication: :login,
