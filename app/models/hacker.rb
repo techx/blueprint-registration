@@ -29,6 +29,12 @@ class Hacker < ActiveRecord::Base
         title: "Application Submitted!",
         text: "Your application has been submitted, but you can still edit it up until we release the first wave of decisions.",
         subtext: (mentor?) ? "" : "Don't forget to create a team if you have people in mind. We'll accept or deny teams as a whole."
+      },
+      100 => {
+        impression: "positive",
+        title: "Welcome to Blueprint!",
+        text: "If you're reading this, you've been accepted as a teacher at Blueprint. If you're a returner, we welcome you back, and if you're new, we hope you enjoy teaching to some eager minds.",
+        subtext: "More details will follow as we get closer to the event, so stay tuned!"
       }
     }[status]
   end

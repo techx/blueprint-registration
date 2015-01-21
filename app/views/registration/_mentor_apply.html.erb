@@ -24,13 +24,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :school, "College/University" %>
+      <%= f.label :school, "University/Place of Work" %>
       <%= f.text_field :school %>
     </div>
 
     <div class="field">
       <%= f.label :year, "Graduation Year" %>
-      <%= f.select :year, graduation_years %>
+      <%= f.select :year, graduation_years(true) %>
     </div>
 
     <div class="field">

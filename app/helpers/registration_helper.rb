@@ -21,13 +21,15 @@ module RegistrationHelper
     ["S", "M", "L", "XL", "XXL"]
   end
 
-  def graduation_years
-    [
+  def graduation_years(mentor = false)
+    years = [
       [2015,2015],
       [2016,2016],
       [2017,2017],
       [2018,2018]
     ]
+    years.insert(0, ["N/A", 0]) if mentor
+    years
   end
 
   def genders
