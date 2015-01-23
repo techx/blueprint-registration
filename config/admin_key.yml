@@ -1,0 +1,8 @@
+development:
+  key: herpderp
+
+test:
+  key: herpderp
+
+production:
+  key: <%= ENV['ADMIN_ACCESS_KEY'] %>

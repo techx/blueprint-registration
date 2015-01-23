@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'errors/error'
-
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#error", :code => code
   end
+
+  get 'admin' => 'admin#root', as: :admin_login
+  post 'admin' => 'admin#login'
+  get 'admin/hackers' => 'admin#hackers', as: :admin_hackers
+  get 'admin/mentors' => 'admin#mentors', as: :admin_mentors
+  post 'admin/update' => 'admin#update', as: :admin_update
 
 
   devise_for :hackers, :skip => [:registrations, :sessions]
