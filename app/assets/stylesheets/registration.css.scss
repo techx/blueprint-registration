@@ -18,75 +18,75 @@ html {
   height: 100%;
 }
 
-body {
+body.all {
   background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), image-url('bg.jpg') no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100%;
-}
 
-.main-container {
-  padding-top: 15%;
-  padding-bottom: 15%;
-  width: 33%;
-  min-width: 288px;
-  margin: 0 auto;
+  .main-container {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    width: 33%;
+    min-width: 288px;
+    margin: 0 auto;
 
-  >.main-content {
-    padding: 16px 16px;
-    border-radius: 2px;
-    border: 1px solid darken($blueprint-blue, 5%);
-    background: white;
+    >.main-content {
+      padding: 16px 16px;
+      border-radius: 2px;
+      border: 1px solid darken($blueprint-blue, 5%);
+      background: white;
+      text-align: center;
+
+      >.title {
+        font-family: $font-logo;
+        font-size: 2.5em;
+        margin-bottom: 8px;
+      }
+
+      >.subtitle {
+        font-family: $font-logo;
+        font-size: 1.5em;
+        margin-bottom: 8px;
+      }
+
+      >p {
+        text-align: left;
+      }
+
+      .button {
+        margin-bottom: 8px;
+      }
+
+      .field {
+        text-align: left;
+      }
+      .fields {
+        text-align: left;
+      }
+    }
+  }
+
+  .logo {
+    font-family: $font-logo;
     text-align: center;
+    color: white;
+    font-size: 4em;
+    margin-bottom: 16px;
+  }
 
-    >.title {
-      font-family: $font-logo;
-      font-size: 2.5em;
-      margin-bottom: 8px;
+  #team {
+    h1 {
+      margin-top: 4px;
     }
-
-    >.subtitle {
-      font-family: $font-logo;
-      font-size: 1.5em;
-      margin-bottom: 8px;
-    }
-
-    >p {
-      text-align: left;
-    }
-
-    .button {
-      margin-bottom: 8px;
-    }
-
-    .field {
-      text-align: left;
-    }
-    .fields {
-      text-align: left;
+    h2 {
+      margin-bottom: 4px;
     }
   }
-}
 
-.logo {
-  font-family: $font-logo;
-  text-align: center;
-  color: white;
-  font-size: 4em;
-  margin-bottom: 16px;
-}
-
-#team {
-  h1 {
-    margin-top: 4px;
+  textarea {
+    height: 100px !important;
   }
-  h2 {
-    margin-bottom: 4px;
-  }
-}
-
-textarea {
-  height: 100px !important;
 }
 
 @media only screen

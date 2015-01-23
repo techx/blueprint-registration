@@ -1,0 +1,6 @@
+<div class="mentor-small">
+  <span class="name"><%= mentor.name %></span>
+  <span class="school"><%= mentor.school %></span>
+  <span class="interests"><%= mentor.interests.join(", ") %></span>
+  <%= link_to "View More", admin_view_user_path(mentor.id) %>
+</div>

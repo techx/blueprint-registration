@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   post 'admin' => 'admin#login'
   get 'admin/hackers' => 'admin#hackers', as: :admin_hackers
   get 'admin/mentors' => 'admin#mentors', as: :admin_mentors
-  post 'admin/update' => 'admin#update', as: :admin_update
-
+  get 'admin/view/:id' => 'admin#view', as: :admin_view_user
+  post 'admin/update/:id' => 'admin#update', as: :admin_update
+  delete 'admin/sign_out' => 'admin#logout', as: :admin_logout
 
   devise_for :hackers, :skip => [:registrations, :sessions]
   devise_scope :hacker do

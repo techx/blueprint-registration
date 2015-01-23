@@ -1,2 +1,6 @@
-<h1>Admin#login</h1>
-<p>Find me in app/views/admin/login.html.erb</p>
+<h1>Blueprint Admin Login</h1>
+
+<%= form_tag(admin_login_path) do %>
+  <%= text_field_tag "key" %><br />
+  <%= submit_tag "Log In" %>
+<% end %>

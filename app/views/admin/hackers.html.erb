@@ -1,2 +1,8 @@
-<h1>Admin#hackers</h1>
-<p>Find me in app/views/admin/hackers.html.erb</p>
+<h1>Hackers Listing</h1>
+
+<%= link_to "Mentor Listing", admin_mentors_path %><br />
+<%= link_to "Log Out", admin_logout_path, method: :delete %>
+
+<% for hacker in @hackers %>
+  <%= render partial: 'hacker_small', locals: { hacker: hacker } %>
+<% end %>

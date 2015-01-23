@@ -5,7 +5,7 @@ class Hacker < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def application_complete?
-    first_name and last_name and phone and school and shirt_size
+    first_name and last_name and phone and school and shirt_size and experience and desire
   end
 
   def team_available?
