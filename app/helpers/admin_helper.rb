@@ -8,4 +8,16 @@ module AdminHelper
     end
   end
 
+  def team(hacker)
+    hacker.team.map{|h| h.name }.join(", ")
+  end
+
+  def phone(hacker)
+    begin
+      return Phoner::Phone.parse(hacker.phone).format(:us)
+    rescue
+      return hacker.phone
+    end
+  end
+
 end

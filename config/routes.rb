@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'admin/hackers' => 'admin#hackers', as: :admin_hackers
   get 'admin/mentors' => 'admin#mentors', as: :admin_mentors
   get 'admin/view/:id' => 'admin#view', as: :admin_view_user
-  post 'admin/update/:id' => 'admin#update', as: :admin_update
   delete 'admin/sign_out' => 'admin#logout', as: :admin_logout
 
   devise_for :hackers, :skip => [:registrations, :sessions]

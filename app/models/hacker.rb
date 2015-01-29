@@ -16,6 +16,10 @@ class Hacker < ActiveRecord::Base
     first_name + " " + last_name
   end
 
+  def team
+    Hacker.where(team_code: team_code)
+  end
+
   def full_status
     {
       0 => {

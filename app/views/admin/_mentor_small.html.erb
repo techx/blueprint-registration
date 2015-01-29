@@ -1,8 +1,15 @@
 <tr>
-  <td><%= mentor.name %></td>
+  <td><%= link_to mentor.name, admin_view_user_path(mentor.id), target: '_blank' %></td>
   <td><%= mentor.school %></td>
   <td><%= mentor.interests.join(", ") %></td>
   <td>
-    <%= link_to "View More", admin_view_user_path(mentor.id), class: "ui button", target: '_blank' %>
+    <% if mentor.availability.include?(0) %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if mentor.availability.include?(1) %>
+    <i class="check icon"></i>
+    <% end %>
   </td>
 </tr>

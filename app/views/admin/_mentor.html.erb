@@ -1,2 +1,96 @@
-<h1>Admin#_mentor</h1>
-<p>Find me in app/views/admin/_mentor.html.erb</p>
+<div class="ui divided items" id="user_data">
+  <div class="item">
+    <h1 class="image">
+      Affiliation
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= mentor.school %>
+      </div>
+      <div class="meta">
+        <%= mentor.year == 0 ? "Year Irrelevant" : mentor.year %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Phone
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= phone(mentor) %>
+      </div>
+      <div class="meta">
+        <%= get_state(mentor) %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Interests
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= mentor.interests.join(", ") %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Essay #1
+    </h1>
+    <div class="content">
+      <div class="header">
+        Describe your previous mentoring experience, if any.
+      </div>
+      <div class="description">
+        <%= mentor.experience %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Essay #2
+    </h1>
+    <div class="content">
+      <div class="header">
+        Why do you want to mentor at Blueprint?
+      </div>
+      <div class="description">
+        <%= mentor.desire %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Diet
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= mentor.dietary_restrictions %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Gender
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= mentor.gender %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Joined
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= mentor.created_at.strftime("%B %d, %Y") %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+  </div>
+</div>

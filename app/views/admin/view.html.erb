@@ -1,6 +1,9 @@
 <h1 class="ui center aligned icon header">
   <i class="circular user icon"></i>
   <%= @user.name %>
+  <div class="sub header">
+    <%= @user.email %>
+  </div>
 </h1>
 
 <% if @user.mentor? %>

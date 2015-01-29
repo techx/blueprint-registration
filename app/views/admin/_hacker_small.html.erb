@@ -1,9 +1,16 @@
 <tr>
-  <td><%= hacker.name %></td>
+  <td><%= link_to hacker.name, admin_view_user_path(hacker.id), target: '_blank' %></td>
   <td><%= get_state(hacker) %></td>
   <td><%= hacker.school %></td>
   <td><%= hacker.year %></td>
   <td>
-    <%= link_to "View More", admin_view_user_path(hacker.id), class: "ui button", target: '_blank' %>
+    <% if hacker.availability.include?(0) %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if hacker.availability.include?(1) %>
+    <i class="check icon"></i>
+    <% end %>
   </td>
 </tr>

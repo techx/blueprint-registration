@@ -1,2 +1,106 @@
-<h1>Admin#_hacker</h1>
-<p>Find me in app/views/admin/_hacker.html.erb</p>
+<div class="ui divided items" id="user_data">
+  <div class="item">
+    <h1 class="image">
+      School
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= hacker.school %>
+      </div>
+      <div class="meta">
+        <%= hacker.year %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Phone
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= phone(hacker) %>
+      </div>
+      <div class="meta">
+        <%= get_state(hacker) %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Interests
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= hacker.interests.join(", ") %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Essay #1
+    </h1>
+    <div class="content">
+      <div class="header">
+        Describe your previous coding experience, if any.
+      </div>
+      <div class="description">
+        <%= hacker.experience %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Essay #2
+    </h1>
+    <div class="content">
+      <div class="header">
+        Why do you want to come to Blueprint?
+      </div>
+      <div class="description">
+        <%= hacker.desire %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Team
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= team(hacker) %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Diet
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= hacker.dietary_restrictions %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Gender
+    </h1>
+    <div class="content">
+      <div class="header">
+        <%= hacker.gender %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Joined
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= hacker.created_at.strftime("%B %d, %Y") %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+  </div>
+</div>
