@@ -13,7 +13,7 @@ class AdminController < ApplicationController
       start_session
       redirect_to admin_hackers_path
     else
-      redirect_to admin_login_path
+      redirect_to admin_login_path, flash: { error: true }
     end
   end
 
@@ -23,11 +23,11 @@ class AdminController < ApplicationController
   end
 
   def hackers
-    @hackers = Hacker.where(mentor: false).where(sanitized_search_params).to_a.keep_if(&:application_complete?)
+    @hackers = Hacker.where(mentor: false, status: 1..1000000).where(sanitized_search_params).order("LOWER(school)")
   end
 
   def mentors
-    @mentors = Hacker.where(mentor: true).where(sanitized_search_params).to_a.keep_if(&:application_complete?)
+    @mentors = Hacker.where(mentor: true, status: 1..10000000).where(sanitized_search_params).order(:year)
   end
 
   def view
@@ -42,6 +42,10 @@ class AdminController < ApplicationController
       flash[:alert] = "There was an error saving the hacker."
     end
     redirect_to admin_view_user_path(params[:id])
+  end
+
+  def batch_update
+
   end
 
   protected

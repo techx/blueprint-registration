@@ -1,6 +1,13 @@
-<h1>Blueprint Admin Login</h1>
+<h1 class="ui center aligned header">
+  Admin Login
+</h1>
 
-<%= form_tag(admin_login_path) do %>
-  <%= text_field_tag "key" %><br />
-  <%= submit_tag "Log In" %>
+<%= form_tag(admin_login_path, class: "ui form") do %>
+  <div class="ui center aligned segment column">
+    <div class="<%= "error " if flash[:error] %> field">
+      <label>Login Key</label>
+      <input placeholder="Login Key" name="key" id="login_key" type="text" />
+    </div>
+    <%= submit_tag "Log In", class: "ui button centered" %>
+  </div>
 <% end %>

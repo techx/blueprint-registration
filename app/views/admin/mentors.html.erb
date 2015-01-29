@@ -3,6 +3,8 @@
 <%= link_to "Hacker Listing", admin_hackers_path %><br />
 <%= link_to "Log Out", admin_logout_path, method: :delete %>
 
+<div class="ui four column stackable page grid">
 <% for mentor in @mentors %>
   <%= render partial: 'mentor_small', locals: { mentor: mentor } %>
 <% end %>
+</div>
