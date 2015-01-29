@@ -1,10 +1,24 @@
-<h1>Mentors Listing</h1>
+<h1 class="ui center aligned icon header">
+  <i class="circular student icon"></i>
+  Mentors
+</h1>
 
-<%= link_to "Hacker Listing", admin_hackers_path %><br />
-<%= link_to "Log Out", admin_logout_path, method: :delete %>
+<div class="ui center aligned header">
+  <%= link_to "View Hackers", admin_hackers_path, class: "ui button" %>
+  <%= link_to "Log Out", admin_logout_path, method: :delete, class: "ui negative button" %>
+</div>
 
-<div class="ui four column stackable page grid">
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>School</th>
+      <th>Interests</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 <% for mentor in @mentors %>
   <%= render partial: 'mentor_small', locals: { mentor: mentor } %>
 <% end %>
-</div>
+</table>
