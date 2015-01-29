@@ -20,6 +20,14 @@ class Hacker < ActiveRecord::Base
     Hacker.where(team_code: team_code)
   end
 
+  def gender_full
+    {
+      "male" => "Male",
+      "female" => "Female",
+      "no_answer" => "Prefer not to answer"
+    }[gender]
+  end
+
   def full_status
     {
       0 => {
