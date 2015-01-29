@@ -8,6 +8,10 @@
   <%= link_to "Log Out", admin_logout_path, method: :delete, class: "ui negative button" %>
 </div>
 
+<div class="ui centered aligned header">
+  Total Records: <%= @hackers.count %>
+</div>
+
 <table class="ui table">
   <thead>
     <tr>
