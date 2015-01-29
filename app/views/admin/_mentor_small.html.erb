@@ -3,6 +3,6 @@
   <td><%= mentor.school %></td>
   <td><%= mentor.interests.join(", ") %></td>
   <td>
-    <%= link_to "View More", admin_view_user_path(mentor.id) %>
+    <%= link_to "View More", admin_view_user_path(mentor.id), class: "ui button", target: '_blank' %>
   </td>
 </tr>

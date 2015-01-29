@@ -44,10 +44,6 @@ class AdminController < ApplicationController
     redirect_to admin_view_user_path(params[:id])
   end
 
-  def batch_update
-
-  end
-
   protected
 
   def sanitized_search_params
