@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   devise_scope :hacker do
     post "sign_in" => "session#create", as: :hacker_session
     delete "sign_out" => "session#destroy", as: :destroy_hacker_session
-    post "sign_up" => "sanitizer#create", as: :hacker_registration
     get "reset" => "reset#new", as: :start_password_reset
     post "reset" => "reset#create", as: :password_reset_lookup
     get "recover" => "reset#edit", as: :change_hacker_password
@@ -30,11 +29,8 @@ Rails.application.routes.draw do
   get "hacker/sign_up" => "registration#hacker_sign_up", as: :hacker_sign_up
   get "mentor/sign_up" => "registration#mentor_sign_up", as: :mentor_sign_up
   get "apply" => "registration#apply"
-  post "apply" => "registration#update"
   get "status" => "registration#status"
   get "team" => "registration#team_view", as: :team
-  post "team/join" => "registration#team_join", as: :team_join
-  delete "team/leave" => "registration#team_leave", as: :team_leave
 
 
 

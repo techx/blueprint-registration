@@ -1,96 +1,126 @@
-<div class="ui divided items" id="user_data">
+<div class="ui items">
   <div class="item">
-    <h1 class="image">
-      Affiliation
-    </h1>
     <div class="content">
       <div class="header">
-        <%= mentor.school %>
+        Name
       </div>
-      <div class="meta">
-        <%= mentor.year == 0 ? "Year Irrelevant" : mentor.year %>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <h1 class="image">
-      Phone
-    </h1>
-    <div class="content">
-      <div class="header">
-        <%= phone(mentor) %>
-      </div>
-      <div class="meta">
-        <%= get_state(mentor) %>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <h1 class="image">
-      Interests
-    </h1>
-    <div class="content">
       <div class="description">
-        <%= mentor.interests.join(", ") %>
+        <%= current_hacker.name %>
       </div>
     </div>
   </div>
+
   <div class="item">
-    <h1 class="image">
-      Essay #1
-    </h1>
+    <div class="content">
+      <div class="header">
+        (Cell) Phone Number
+      </div>
+      <div class="description">
+        <%= current_hacker.phone %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        University/Place of Work
+      </div>
+      <div class="description">
+        <%= current_hacker.school %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Graduation Year
+      </div>
+      <div class="description">
+        <%= (current_hacker.year == 0) ? "N/A" : current_hacker.year %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Day 1?
+      </div>
+      <div class="description">
+        <% if current_hacker.availability.include?(0) %>
+        <i class="check icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Day 2?
+      </div>
+      <div class="description">
+        <% if current_hacker.availability.include?(1) %>
+        <i class="check icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Shirt Size
+      </div>
+      <div class="description">
+        <%= current_hacker.shirt_size %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Dietary Restrictions
+      </div>
+      <div class="description">
+        <%= current_hacker.dietary_restrictions %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <div class="header">
+        Expertise
+      </div>
+      <div class="description">
+        <%= current_hacker.interests.join(", ") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
     <div class="content">
       <div class="header">
         Describe your previous mentoring experience, if any.
       </div>
       <div class="description">
-        <%= mentor.experience %>
+        <%= current_hacker.experience %>
       </div>
     </div>
   </div>
+
   <div class="item">
-    <h1 class="image">
-      Essay #2
-    </h1>
     <div class="content">
       <div class="header">
-        Why do you want to mentor at Blueprint?
+        Why do you want to mentor at blueprint?
       </div>
       <div class="description">
-        <%= mentor.desire %>
+        <%= current_hacker.desire %>
       </div>
     </div>
-  </div>
-  <div class="item">
-    <h1 class="image">
-      Diet
-    </h1>
-    <div class="content">
-      <div class="description">
-        <%= mentor.dietary_restrictions %>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <h1 class="image">
-      Gender
-    </h1>
-    <div class="content">
-      <div class="header">
-        <%= mentor.gender %>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <h1 class="image">
-      Joined
-    </h1>
-    <div class="content">
-      <div class="description">
-        <%= mentor.created_at.strftime("%B %d, %Y") %>
-      </div>
-    </div>
-  </div>
-  <div class="item">
   </div>
 </div>

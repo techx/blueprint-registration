@@ -49,45 +49,8 @@ class RegistrationController < ApplicationController
 
   end
 
-  #update the user's application
-  def update
-    current_hacker.assign_attributes(hacker_params)
-    current_hacker.availability = params["hacker"]["availability"] || []
-    current_hacker.interests = params["hacker"]["interests"] || []
-    error = current_hacker.get_error
-    if error
-      flash[:alert] = error
-      render "apply"
-    else
-      flash[:notice] = "Success! Application saved."
-      current_hacker.status = 1 if current_hacker.status == 0
-      current_hacker.save!
-      redirect_to status_path
-    end
-  end
-
   def team_view
     @team_hackers = Hacker.where(:team_code => current_hacker.team_code)
-  end
-
-  def team_leave
-    current_hacker.team_code = TeamCode.generate!
-    current_hacker.save!
-    flash[:notice] = "Left the team."
-    redirect_to team_url
-  end
-
-  def team_join
-    hex = hacker_params["team_code"] || TeamCode.generate!
-    status = TeamCode.validate_code(hex)
-    if status[:valid]
-      current_hacker.team_code = hex
-      current_hacker.save!
-      flash[:notice] = status[:message]
-    else
-      flash[:alert] = status[:message]
-    end
-    redirect_to team_url
   end
 
   private

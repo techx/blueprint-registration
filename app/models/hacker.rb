@@ -33,20 +33,17 @@ class Hacker < ActiveRecord::Base
       0 => {
         impression: "negative",
         title: "Submit your application!",
-        text: "You've created your account, but you haven't submitted anything yet! Please complete your application to be considered for admission.",
-        subtext: ""
+        text: "You've created your account, and didn't submit anything before the deadline. Registration has now closed, but maybe we'll see you next year.",
       },
       1 => {
         impression: "neutral",
         title: "Application Submitted!",
-        text: "Your application has been submitted, but you can still edit it up until we release the first wave of decisions.",
-        subtext: (mentor?) ? "" : "Don't forget to create a team if you have people in mind. We'll accept or deny teams as a whole."
+        text: "Your application has been submitted, and is under review. Please wait until Febuary 8th for our decision.",
       },
       100 => {
         impression: "positive",
         title: "Welcome to Blueprint!",
-        text: "If you're reading this, you've been accepted as a teacher at Blueprint. If you're a returner, we welcome you back, and if you're new, we hope you enjoy teaching to some eager minds.",
-        subtext: "More details will follow as we get closer to the event, so stay tuned!"
+        text: "If you're reading this, you've been accepted as a teacher at Blueprint. If you're a returner, we welcome you back, and if you're new, we hope you enjoy teaching to some eager minds. More details will follow as we get closer to the event, so stay tuned!",
       }
     }[status]
   end

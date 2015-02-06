@@ -1,103 +1,104 @@
-<div class="ui form">
-  <%= form_for(current_hacker, {as: :hacker, url: apply_path, method: :post}) do |f| %>
-
-    <div class="two fields">
-      <div class="field">
-        <%= f.label :first_name, "First Name" %>
-        <%= f.text_field :first_name %>
-      </div>
-
-      <div class="field">
-        <%= f.label :last_name, "Last Name" %>
-        <%= f.text_field :last_name %>
-      </div>
+<div class="ui items">
+  <div class="item">
+    <div class="header">
+      Name
     </div>
-
-    <div class="field">
-      <%= f.label :gender, "Gender" %>
-      <%= f.select :gender, genders %>
+    <div class="description">
+      <%= current_hacker.name %>
     </div>
+  </div>
 
-    <div class="field">
-      <%= f.label :phone, "(Cell) Phone Number" %>
-      <%= f.telephone_field :phone %>
+  <div class="item">
+    <div class="header">
+      (Cell) Phone Number
     </div>
-
-    <div class="field">
-      <%= f.label :school, "University/Place of Work" %>
-      <%= f.text_field :school %>
+    <div class="description">
+      <%= current_hacker.phone %>
     </div>
+  </div>
 
-    <div class="field">
-      <%= f.label :year, "Graduation Year" %>
-      <%= f.select :year, graduation_years(true) %>
+  <div class="item">
+    <div class="header">
+      University/Place of Work
     </div>
-
-    <div class="field">
-      <label>
-        What days could you mentor?
-      </label>
+    <div class="description">
+      <%= current_hacker.school %>
     </div>
+  </div>
 
-    <% days.each do |day| %>
-      <div class="field">
-        <div class="ui checkbox">
-          <%= check_box_tag "hacker[availability][]", day[:value], current_hacker[:availability].include?(day[:value]), id: "available#{day[:value]}" %>
-          <%= f.label "", day[:title], for: "available#{day[:value]}" %>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <label>
-        Shirt Size
-      </label>
+  <div class="item">
+    <div class="header">
+      Graduation Year
     </div>
+    <div class="description">
+      <%= (current_hacker.year == 0) ? "N/A" : current_hacker.year %>
+    </div>
+  </div>
 
-    <div class="grouped inline fields">
-      <% shirt_sizes.each do |size| %>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <%= radio_button_tag "hacker[shirt_size]", size, current_hacker[:shirt_size] == size , id: 'shirt'+size %>
-            <%= f.label "", size , for: 'shirt'+size%>
-          </div>
-        </div>
+  <div class="item">
+    <div class="header">
+      Day 1?
+    </div>
+    <div class="description">
+      <% if current_hacker.availability.include?(0) %>
+      <i class="check icon"></i>
       <% end %>
     </div>
+  </div>
 
-    <div class="field">
-      <%= f.label :dietary_restrictions, "Dietary Restrictions" %>
-      <%= f.text_field :dietary_restrictions %>
+  <div class="item">
+    <div class="header">
+      Day 2?
     </div>
-
-    <div class="field">
-      <label>
-        What are you experienced in?
-      </label>
+    <div class="description">
+      <% if current_hacker.availability.include?(1) %>
+      <i class="check icon"></i>
+      <% end %>
     </div>
-    <div class="grouped inline fields">
-    <% interests.each do |interest| %>
-      <div class="field">
-        <div class="ui checkbox">
-          <%= check_box_tag "hacker[interests][]", interest, current_hacker[:interests].include?(interest), id: interest %>
-          <%= f.label "", interest, for: interest %><br />
-        </div>
-      </div>
-    <% end %></div>
+  </div>
 
-    <div class="field">
-      <%= f.label :experience, "Describe your previous mentoring experience, if any." %>
-      <%= f.text_area :experience, placeholder: "Don't worry if you have never mentored before!" %>
+  <div class="item">
+    <div class="header">
+      Shirt Size
     </div>
-
-    <div class="field">
-      <%= f.label :desire, "Why do you want to mentor at Blueprint?" %>
-      <%= f.text_area :desire, placeholder: "Other than that Blueprint is awesome ;)" %>
+    <div class="description">
+      <%= current_hacker.shirt_size %>
     </div>
+  </div>
 
-    <div class="field">
-      <%= f.submit ((current_hacker.status == 0) ? "Submit your application!" : "Submit changes!"), class: 'ui fluid yellow button' %>
+  <div class="item">
+    <div class="header">
+      Dietary Restrictions
     </div>
+    <div class="description">
+      <%= current_hacker.dietary_restrictions %>
+    </div>
+  </div>
 
-  <% end %>
+  <div class="item">
+    <div class="header">
+      What are you experienced in?
+    </div>
+    <div class="description">
+      <%= current_hacker.interests.join(", ") %>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="header">
+      Describe your previous mentoring experience, if any.
+    </div>
+    <div class="description">
+      <%= current_hacker.experience %>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="header">
+      Why do you want to mentor at blueprint?
+    </div>
+    <div class="description">
+      <%= current_hacker.desire %>
+    </div>
+  </div>
 </div>

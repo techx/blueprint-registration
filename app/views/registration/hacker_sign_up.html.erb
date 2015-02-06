@@ -6,43 +6,8 @@
 
 <p>Blueprint has two components: the learnathon and the hackathon. You can sign up for one or the other or both! However, we have some capacity limits: only 150 for the learnathon and 300 for the hackathon. To decide this, we will be choosing teams/individuals randomly through our lottery system. We just need a little more information from you before you can submit your application.</p>
 
-<p>Registration closes February 6th @ 11:59pm EST!</p>
-
-<div class="ui two stackable steps">
-  <div class="active step">
-    <i class="child icon"></i>
-    <div class="content">
-      <div class="title">Register as Hacker</div>
-    </div>
-  </div>
-  <div class="disabled step">
-    <i class="write icon"></i>
-    <div class="content">
-      <div class="title">Apply</div>
-    </div>
-  </div>
-</div>
-
 <br>
 
-<div class="ui form">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-
-    <%= f.hidden_field :mentor, value: "0" %>
-
-    <div class="field">
-      <%= f.submit "Sign up", class: 'ui fluid yellow button' %>
-    </div>
-  <% end %>
-</div>
+<h3>
+  Registration has closed, but thank you for your interest!
+</h3>

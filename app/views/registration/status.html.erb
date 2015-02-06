@@ -6,23 +6,17 @@
   <%= current_hacker.full_status[:text] %>
 </div><br />
 
-<div class="subtext">
-  <%= current_hacker.full_status[:subtext] %>
-</div><br />
-
 <div>
   You applied as a <%= current_hacker.mentor? ? "mentor" : "hacker" %>.
 </div><br />
 
 <div>
-  You can edit your application until registration closes on February 6th @ 11:59pm EST!
+  Registration has closed! We'll get back to you on <b>February 8th</b> with our decision!
 </div><br />
 
-<%= link_to('Edit your application', apply_path, class: 'ui blue button') %>
+<%= link_to('View application', apply_path, class: 'ui blue button') %>
 <% if current_hacker.team_available? %>
-  <br>
-  <%= link_to('Join or View Team', team_path, class: 'ui yellow button') %>
-  <br>
+  <%= link_to('View Team', team_path, class: 'ui yellow button') %>
 <% end %>
 <br>
 <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
