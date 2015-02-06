@@ -44,6 +44,18 @@ class AdminController < ApplicationController
     redirect_to admin_view_user_path(params[:id])
   end
 
+  def all_emails
+    render plain: Hacker.select(:email).where(status: 1..1000).map(&:email).join("\n")
+  end
+
+  def hacker_emails
+    render plain: Hacker.select(:email).where(mentor: false, status: 1..1000).map(&:email).join("\n")
+  end
+
+  def mentor_emails
+    render plain: Hacker.select(:email).where(mentor: true, status: 1..1000).map(&:email).join("\n")
+  end
+
   protected
 
   def sanitized_search_params
