@@ -38,7 +38,7 @@ class Hacker < ActiveRecord::Base
       1 => {
         impression: "neutral",
         title: "Application Submitted!",
-        text: "Your application has been submitted, and is under review. Please wait until Febuary 8th for our decision.",
+        text: "Your application has been submitted, and is under review. Please wait until Febuary 9th for our decision.",
       },
       100 => {
         impression: "positive",
