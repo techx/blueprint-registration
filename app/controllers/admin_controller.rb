@@ -63,6 +63,22 @@ class AdminController < ApplicationController
     render plain: Hacker.select(:email).where(mentor: true, status: 1..1000).map(&:email).join("\n")
   end
 
+  def hackers_no_forms
+    render plain: Hacker.select(:email).where(mentor: false, have_forms: false).map(&:email).join("\n")
+  end
+
+  def mentors_no_forms
+    render plain: Hacker.select(:email).where(mentor: true, have_forms: false).map(&:email).join("\n")
+  end
+
+  def hackers_no_confirmation
+    render plain: Hacker.select(:email).where(mentor: false, status: 1..4).map(&:email).join("\n")
+  end
+
+  def mentors_no_confirmation
+    render plain: Hacker.select(:email).where(mentor: true, status: 1..4).map(&:email).join("\n")
+  end
+
   protected
 
   def sanitized_search_params

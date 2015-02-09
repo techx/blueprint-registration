@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'admin/emails.txt' => 'admin#all_emails'
   get 'admin/hacker_emails.txt' => 'admin#hacker_emails'
   get 'admin/mentor_emails.txt' => 'admin#mentor_emails'
+  get 'admin/hackers_no_forms.txt' => 'admin#hackers_no_forms'
+  get 'admin/mentors_no_forms.txt' => 'admin#mentors_no_forms'
+  get 'admin/hackers_no_confirmation.txt' => 'admin#hackers_no_confirmation'
+  get 'admin/mentors_no_confirmation.txt' => 'admin#mentors_no_confirmation'
   delete 'admin/sign_out' => 'admin#logout', as: :admin_logout
 
   devise_for :hackers, :skip => [:registrations, :sessions]
