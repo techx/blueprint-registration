@@ -5,7 +5,7 @@
         Name
       </div>
       <div class="description">
-        <%= current_hacker.name %>
+        <%= mentor.name %>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
         (Cell) Phone Number
       </div>
       <div class="description">
-        <%= current_hacker.phone %>
+        <%= mentor.phone %>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
         University/Place of Work
       </div>
       <div class="description">
-        <%= current_hacker.school %>
+        <%= mentor.school %>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
         Graduation Year
       </div>
       <div class="description">
-        <%= (current_hacker.year == 0) ? "N/A" : current_hacker.year %>
+        <%= (mentor.year == 0) ? "N/A" : mentor.year %>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
         Day 1?
       </div>
       <div class="description">
-        <% if current_hacker.availability.include?(0) %>
+        <% if mentor.availability.include?(0) %>
         <i class="check icon"></i>
         <% end %>
       </div>
@@ -62,7 +62,7 @@
         Day 2?
       </div>
       <div class="description">
-        <% if current_hacker.availability.include?(1) %>
+        <% if mentor.availability.include?(1) %>
         <i class="check icon"></i>
         <% end %>
       </div>
@@ -75,7 +75,7 @@
         Shirt Size
       </div>
       <div class="description">
-        <%= current_hacker.shirt_size %>
+        <%= mentor.shirt_size %>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@
         Dietary Restrictions
       </div>
       <div class="description">
-        <%= current_hacker.dietary_restrictions %>
+        <%= mentor.dietary_restrictions %>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@
         Expertise
       </div>
       <div class="description">
-        <%= current_hacker.interests.join(", ") %>
+        <%= mentor.interests.join(", ") %>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
         Describe your previous mentoring experience, if any.
       </div>
       <div class="description">
-        <%= current_hacker.experience %>
+        <%= mentor.experience %>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
         Why do you want to mentor at blueprint?
       </div>
       <div class="description">
-        <%= current_hacker.desire %>
+        <%= mentor.desire %>
       </div>
     </div>
   </div>
