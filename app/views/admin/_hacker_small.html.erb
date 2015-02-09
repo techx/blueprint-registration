@@ -2,6 +2,21 @@
   <td><%= link_to hacker.name, admin_view_user_path(hacker.id), target: '_blank' %></td>
   <td><%= hacker.email %></td>
   <td>
+    <% if hacker.status > 4 %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if hacker.attending_day1? %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if hacker.attending? %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
     <%= link_to ((hacker.have_forms?) ? "UNDO RECEIVE" : "Mark as received"), admin_have_forms_path(hacker) %>
   </td>
 </tr>

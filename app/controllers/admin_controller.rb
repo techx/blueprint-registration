@@ -64,11 +64,11 @@ class AdminController < ApplicationController
   end
 
   def hackers_no_forms
-    render plain: Hacker.select(:email).where(mentor: false, have_forms: false).map(&:email).join("\n")
+    render plain: Hacker.select(:email).where(mentor: false, have_forms: [nil, false]).map(&:email).join("\n")
   end
 
   def mentors_no_forms
-    render plain: Hacker.select(:email).where(mentor: true, have_forms: false).map(&:email).join("\n")
+    render plain: Hacker.select(:email).where(mentor: true, have_forms: [nil, false]).map(&:email).join("\n")
   end
 
   def hackers_no_confirmation

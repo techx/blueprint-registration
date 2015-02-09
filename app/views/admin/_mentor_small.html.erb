@@ -2,6 +2,21 @@
   <td><%= link_to mentor.name, admin_view_user_path(mentor.id), target: '_blank' %></td>
   <td><%= mentor.email %></td>
   <td>
+    <% if mentor.status > 4 %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if mentor.attending_day1? %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if mentor.attending? %>
+    <i class="check icon"></i>
+    <% end %>
+  </td>
+  <td>
     <%= link_to ((mentor.have_forms?) ? "UNDO RECEIVE" : "Mark as received"), admin_have_forms_path(mentor) %>
   </td>
 </tr>

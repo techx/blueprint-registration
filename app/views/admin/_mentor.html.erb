@@ -1,108 +1,44 @@
-<div class="ui items">
+<div class="ui divided items" id="user_data">
   <div class="item">
+    <h1 class="image">
+      School
+    </h1>
     <div class="content">
       <div class="header">
-        Name
-      </div>
-      <div class="description">
-        <%= mentor.name %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        (Cell) Phone Number
-      </div>
-      <div class="description">
-        <%= mentor.phone %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        University/Place of Work
-      </div>
-      <div class="description">
         <%= mentor.school %>
       </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Graduation Year
-      </div>
-      <div class="description">
-        <%= (mentor.year == 0) ? "N/A" : mentor.year %>
+      <div class="meta">
+        <%= mentor.year %>
       </div>
     </div>
   </div>
-
   <div class="item">
+    <h1 class="image">
+      Phone
+    </h1>
     <div class="content">
       <div class="header">
-        Day 1?
+        <%= phone(mentor) %>
       </div>
-      <div class="description">
-        <% if mentor.availability.include?(0) %>
-        <i class="check icon"></i>
-        <% end %>
+      <div class="meta">
+        <%= get_state(mentor) %>
       </div>
     </div>
   </div>
-
   <div class="item">
+    <h1 class="image">
+      Expertise
+    </h1>
     <div class="content">
-      <div class="header">
-        Day 2?
-      </div>
-      <div class="description">
-        <% if mentor.availability.include?(1) %>
-        <i class="check icon"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Shirt Size
-      </div>
-      <div class="description">
-        <%= mentor.shirt_size %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Dietary Restrictions
-      </div>
-      <div class="description">
-        <%= mentor.dietary_restrictions %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Expertise
-      </div>
       <div class="description">
         <%= mentor.interests.join(", ") %>
       </div>
     </div>
   </div>
-
   <div class="item">
+    <h1 class="image">
+      Essay #1
+    </h1>
     <div class="content">
       <div class="header">
         Describe your previous mentoring experience, if any.
@@ -112,15 +48,39 @@
       </div>
     </div>
   </div>
-
   <div class="item">
+    <h1 class="image">
+      Essay #2
+    </h1>
     <div class="content">
       <div class="header">
-        Why do you want to mentor at blueprint?
+        Why do you want to mentor at Blueprint?
       </div>
       <div class="description">
         <%= mentor.desire %>
       </div>
     </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Diet
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= mentor.dietary_restrictions %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <h1 class="image">
+      Joined
+    </h1>
+    <div class="content">
+      <div class="description">
+        <%= mentor.created_at.strftime("%B %d, %Y") %>
+      </div>
+    </div>
+  </div>
+  <div class="item">
   </div>
 </div>
