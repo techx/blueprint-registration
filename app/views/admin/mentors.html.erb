@@ -9,7 +9,11 @@
 </div>
 
 <div class="ui centered aligned header">
-  Total Records: <%= @mentors.length %>
+  Total Records: <%= @mentors.length %>,
+  Confirmed: <%= @mentors.where(status: 5..10000).length %>,
+  Day 1: <%= @mentors.where(attending_day1: true).length %>,
+  Day 2: <%= @mentors.where(attending: true).length %>,
+  Forms: <%= @mentors.where(have_forms: true).length %>
 </div>
 
 <table class="ui table">
