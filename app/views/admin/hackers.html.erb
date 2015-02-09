@@ -9,18 +9,15 @@
 </div>
 
 <div class="ui centered aligned header">
-  Total Records: <%= @hackers.count %>
+  Total Records: <%= @hackers.length %>
 </div>
 
 <table class="ui table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>State</th>
-      <th>High School</th>
-      <th>Year</th>
-      <th>Day 1?</th>
-      <th>Day 2?</th>
+      <th>Email</th>
+      <th>Forms</th>
     </tr>
   </thead>
 <% for hacker in @hackers %>

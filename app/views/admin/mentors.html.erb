@@ -9,17 +9,15 @@
 </div>
 
 <div class="ui centered aligned header">
-  Total Records: <%= @mentors.count %>
+  Total Records: <%= @mentors.length %>
 </div>
 
 <table class="ui table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>School</th>
-      <th>Interests</th>
-      <th>Day 1?</th>
-      <th>Day 2?</th>
+      <th>Email</th>
+      <th>Forms</th>
     </tr>
   </thead>
 <% for mentor in @mentors %>

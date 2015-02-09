@@ -22,10 +22,7 @@
 
   <div class="main-container">
     <div class="logo">
-      Blueprint
-    </div>
-    <div class="main-content">
-      <%= yield %>
+      <a style="text-decoration: none; color: white;" href="//blueprint.hackmit.org">Blueprint</a>
     </div>
     <% if notice %>
     <p class="ui warning message"><%= notice %></p>
@@ -33,6 +30,9 @@
     <% if alert %>
     <p class="ui negative message"><%= alert %></p>
     <% end %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
   </div>
 
 </body>

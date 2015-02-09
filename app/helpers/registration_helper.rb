@@ -34,9 +34,65 @@ module RegistrationHelper
 
   def genders
     [
+      ["",nil],
       ["Prefer not to answer","no_answer"],
       ["Male","male"],
       ["Female","female"],
+    ]
+  end
+
+  def laptop_types
+    [
+      ["",nil],
+      ["Mac OS", 0],
+      ["Windows", 1],
+      ["Linux", 2],
+      ["I have no laptop that I can bring", 3]
+    ]
+  end
+
+  def phone_types
+    [
+      ["",nil],
+      ["iPhone", 0],
+      ["Android", 1],
+      ["Other", 2],
+      ["I have no cell phone", 3]
+    ]
+  end
+
+  def booleans
+    [
+      ["",nil],
+      ["Yes", true],
+      ["No", false]
+    ]
+  end
+
+  def tracks
+    [
+      ["",nil],
+      ["iOS Development", 0],
+      ["Android Development", 1],
+      ["Web Development", 2]
+    ]
+  end
+
+  def orientations
+    [
+      ["",nil],
+      ["February 11th @ 6:00 PM in 4-149", 1],
+      ["February 12th @ 6:00 PM in 3-442", 2],
+      ["I do not live near MIT", 0]
+    ]
+  end
+
+  def experience_levels
+    [
+      ["",nil],
+      ["Absolutely none", 0],
+      ["Some (AP CS or equivalent)", 1],
+      ["Lots (hackathon experience, coding competitions, etc.)", 2]
     ]
   end
 

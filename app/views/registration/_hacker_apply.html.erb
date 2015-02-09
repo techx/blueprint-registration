@@ -1,126 +1,97 @@
-<div class="ui items">
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Name
+<% if current_hacker.status == 2 or current_hacker.status == 5 %>
+  <h1 class="ui header"> Welcome! </h1>
+  <p> Congratulations! You’ve been accepted into Blueprint for <b>both days!</b> Please fill out the following form by <b>February 11th at 11:59 pm EST</b> to confirm your attendance for the learnathon and hackathon. You must also email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>. </p>
+<% elsif current_hacker.status == 3 or current_hacker.status == 6 %>
+  <h1 class="ui header"> Welcome! </h1>
+  <p> We couldn’t offer you a spot for day 1, but you’ve been accepted into Blueprint for <b>day 2!</b> Please fill out the following form by <b>February 11th at 11:59 pm EST</b> to confirm your attendance for the hackathon. You must also email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>. </p>
+<% end %>
+
+<%= link_to "Liability Form", '/liability.pdf', target: "_blank" %><br />
+<%= link_to "Medical Release Form", '/parental_medical_form.pdf', target: "_blank" %><br />
+<%= link_to "Conduct and Photo Release Form", '/photo_release_hackers.pdf', target: "_blank" %><br /><br />
+
+<div class="ui form">
+  <%= form_for(current_hacker, {as: :hacker, url: info_path, method: :post}) do |f| %>
+
+    <% if current_hacker.status == 2 or current_hacker.status == 5 %>
+
+      <div class="field">
+        <%= f.label :attending_day1, "Will you be attending Day 1 of Blueprint?" %>
+        <%= f.select :attending_day1, booleans %>
       </div>
-      <div class="description">
-        <%= current_hacker.name %>
-      </div>
+
+    <% end %>
+
+    <div class="field">
+      <%= f.label :attending, "Will you be attending Day 2 of Blueprint?" %>
+      <%= f.select :attending, booleans %>
     </div>
+
+    <div class="field">
+      <%= f.label :laptop_type, "What type of laptop do you have?" %>
+      <%= f.select :laptop_type, laptop_types %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_type, "What type of cell phone do you have?" %>
+      <%= f.select :phone_type, phone_types %>
+    </div>
+
+    <div class="field">
+      <%= f.label :experience_level, "How much coding experience do you have?" %>
+      <%= f.select :experience_level, experience_levels %>
+    </div>
+
+    <% if current_hacker.status == 2 or current_hacker.status == 5 %>
+
+      <h3 class="ui header">Please rank the following courses for Day 1:<div class="sub header">Course descriptions are provided below.</div></h3>
+
+      <div class="field">
+        <%= f.label :first_choice, "First Choice" %>
+        <%= f.select :first_choice, tracks %>
+      </div>
+
+      <div class="field">
+        <%= f.label :second_choice, "Second Choice" %>
+        <%= f.select :second_choice, tracks %>
+      </div>
+
+      <div class="field">
+        <%= f.label :third_choice, "Third Choice" %>
+        <%= f.select :third_choice, tracks %>
+      </div>
+
+    <% end %>
+
+    <h3 class="ui header">Emergency Contact Info<div class="sub header">Please provide us with an emergency contact.</div></h3>
+
+    <div class="field">
+      <label>Emergency Contact Name</label>
+      <input name="hacker[emergency_info][name]" value="<%= current_hacker.emergency_info.try(:[],'name') %>"/ >
+    </div>
+
+    <div class="field">
+      <label>Emergency Contact Phone</label>
+      <input name="hacker[emergency_info][phone]" value="<%= current_hacker.emergency_info.try(:[],'phone') %>" />
+    </div>
+
+    <div class="field">
+    <%= f.submit ((current_hacker.status <= 4) ? "Submit form!" : "Submit changes!"), class: 'ui fluid yellow button' %>
   </div>
 
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        (Cell) Phone Number
-      </div>
-      <div class="description">
-        <%= current_hacker.phone %>
-      </div>
-    </div>
-  </div>
+  <% end %>
+  <hr />
+  <% if current_hacker.status == 2 or current_hacker.status == 5 %>
+  <div>
+    <h2 class="ui header">Course Descriptions</h2>
+    <h3 class="ui header">iOS Game Development</h3>
+    <p>The iOS track will explore the basics of iOS game development. The track will start with an introduction to Swift and mobile development practices. The rest of the course will be a walkthrough of how to make your first iPhone game! <a href="https://www.makeschool.com">Make School</a>, a company that aims to empower students to build and ship products, will be teaching all the classes. If you are interested in mobile development or love games, this might be a cool track to choose.</p>
 
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        High School
-      </div>
-      <div class="description">
-        <%= current_hacker.school %>
-      </div>
-    </div>
-  </div>
+    <h3 class="ui header">Android Development</h3>
+    <p>The Android track will consist of classes that teach you the essentials of software development in Java and introductory practices of Android development. The first workshop will go over basic Java programming, and the following workshops will walk you through development of your first Android app! If you have taken an AP Computer Science class or have some experience in Java and are interested in mobile development, this might be an interesting track for you.</p>
 
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Graduation Year
-      </div>
-      <div class="description">
-        <%= (current_hacker.year == 0) ? "N/A" : current_hacker.year %>
-      </div>
-    </div>
+    <h3 class="ui header">Web Development</h3>
+    <p>Interested in building a website or a web application? The web development track will introduce you to HTML, CSS, and JavaScript as we build your very own personal website. We’ll be starting off with HTML and CSS, teaching fundamentals of programming with JavaScript, and then introducing <a href="https://www.meteor.com">Meteor</a>, a web development framework that makes it easy to build realtime web apps fast! If you are completely new to programming or are interested in web development, this might be the track for you.</p>
   </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Day 1?
-      </div>
-      <div class="description">
-        <% if current_hacker.availability.include?(0) %>
-        <i class="check icon"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Day 2?
-      </div>
-      <div class="description">
-        <% if current_hacker.availability.include?(1) %>
-        <i class="check icon"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Shirt Size
-      </div>
-      <div class="description">
-        <%= current_hacker.shirt_size %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Dietary Restrictions
-      </div>
-      <div class="description">
-        <%= current_hacker.dietary_restrictions %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        What do you want to learn?
-      </div>
-      <div class="description">
-        <%= current_hacker.interests.join(", ") %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Describe your previous coding experience, if any.
-      </div>
-      <div class="description">
-        <%= current_hacker.experience %>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        Why do you want to come to blueprint?
-      </div>
-      <div class="description">
-        <%= current_hacker.desire %>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>

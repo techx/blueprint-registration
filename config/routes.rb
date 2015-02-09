@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'admin/hackers' => 'admin#hackers', as: :admin_hackers
   get 'admin/mentors' => 'admin#mentors', as: :admin_mentors
   get 'admin/view/:id' => 'admin#view', as: :admin_view_user
+  get 'admin/have_forms/:id' => 'admin#have_forms', as: :admin_have_forms
   get 'admin/emails.txt' => 'admin#all_emails'
   get 'admin/hacker_emails.txt' => 'admin#hacker_emails'
   get 'admin/mentor_emails.txt' => 'admin#mentor_emails'
@@ -31,7 +32,8 @@ Rails.application.routes.draw do
   get "/" => "registration#home", as: :new_hacker_session
   get "hacker/sign_up" => "registration#hacker_sign_up", as: :hacker_sign_up
   get "mentor/sign_up" => "registration#mentor_sign_up", as: :mentor_sign_up
-  get "apply" => "registration#apply"
+  get "info" => "registration#info"
+  post "info" => "registration#update_info"
   get "status" => "registration#status"
   get "team" => "registration#team_view", as: :team
 

@@ -1,15 +1,7 @@
 <tr>
   <td><%= link_to mentor.name, admin_view_user_path(mentor.id), target: '_blank' %></td>
-  <td><%= mentor.school %></td>
-  <td><%= mentor.interests.join(", ") %></td>
+  <td><%= mentor.email %></td>
   <td>
-    <% if mentor.availability.include?(0) %>
-    <i class="check icon"></i>
-    <% end %>
-  </td>
-  <td>
-    <% if mentor.availability.include?(1) %>
-    <i class="check icon"></i>
-    <% end %>
+    <%= link_to ((mentor.have_forms?) ? "UNDO RECEIVE" : "Mark as received"), admin_have_forms_path(mentor) %>
   </td>
 </tr>

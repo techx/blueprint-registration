@@ -1,16 +1,7 @@
 <tr>
   <td><%= link_to hacker.name, admin_view_user_path(hacker.id), target: '_blank' %></td>
-  <td><%= get_state(hacker) %></td>
-  <td><%= hacker.school %></td>
-  <td><%= hacker.year %></td>
+  <td><%= hacker.email %></td>
   <td>
-    <% if hacker.availability.include?(0) %>
-    <i class="check icon"></i>
-    <% end %>
-  </td>
-  <td>
-    <% if hacker.availability.include?(1) %>
-    <i class="check icon"></i>
-    <% end %>
+    <%= link_to ((hacker.have_forms?) ? "UNDO RECEIVE" : "Mark as received"), admin_have_forms_path(hacker) %>
   </td>
 </tr>

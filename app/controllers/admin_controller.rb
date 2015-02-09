@@ -23,11 +23,11 @@ class AdminController < ApplicationController
   end
 
   def hackers
-    @hackers = Hacker.where(mentor: false, status: 1..1000000).where(sanitized_search_params).order("LOWER(school)")
+    @hackers = Hacker.select(:id, :first_name, :last_name, :email, :have_forms).where(mentor: false, status: 1..1000000).where(sanitized_search_params).order(:first_name)
   end
 
   def mentors
-    @mentors = Hacker.where(mentor: true, status: 1..10000000).where(sanitized_search_params).order(:year)
+    @mentors = Hacker.select(:id, :first_name, :last_name, :email, :have_forms).where(mentor: true, status: 1..10000000).where(sanitized_search_params).order(:first_name)
   end
 
   def view
@@ -42,6 +42,13 @@ class AdminController < ApplicationController
       flash[:alert] = "There was an error saving the hacker."
     end
     redirect_to admin_view_user_path(params[:id])
+  end
+
+  def have_forms
+    hacker = Hacker.where(id: params[:id]).take
+    hacker.have_forms = !hacker.have_forms?
+    hacker.save!
+    redirect_to request.referrer
   end
 
   def all_emails

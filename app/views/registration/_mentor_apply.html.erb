@@ -1,104 +1,58 @@
-<div class="ui items">
-  <div class="item">
-    <div class="header">
-      Name
+<% if current_hacker.status == 2 %>
+
+<h1 class="ui header"> Blueprint Decision </h1>
+
+<p> Unfortunately, we couldn’t accept you as a mentor for Blueprint. We still encourage you to apply next year! </p>
+
+<%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
+
+<% elsif current_hacker.status == 3 or current_hacker.status == 4 or current_hacker.status == 6 or current_hacker.status == 7 %>
+
+<h1 class="ui header"> Welcome! </h1>
+
+<p>Thanks for signing up to be a mentor! We really appreciate your help.</p>
+<p>If you live near MIT, you <b>must</b> attend one of our two mentor orientations on <b>February 11th at 6 pm in room 4-149</b> in Building 4 or <b>February 12th at 6 pm in room 3-442</b> in Building 3.</p>
+<p>Please fill out the following form by February 10th at 11:59 pm EST to confirm your attendance.</p><p><b>You also need to email your completed Code of Conduct and Photo Release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>.</b></p>
+
+<%= link_to "Code of Conduct Form", '/code_of_conduct.pdf', target: "_blank" %><br />
+<%= link_to "Conduct and Photo Release Form", '/photo_release_mentors.pdf', target: "_blank" %><br /><br />
+
+<% end %>
+
+<% if current_hacker.status > 2 %>
+
+<div class="ui form">
+  <%= form_for(current_hacker, {as: :hacker, url: info_path, method: :post}) do |f| %>
+
+  <% if current_hacker.status == 3 or current_hacker.status == 6 %>
+
+    <div class="field">
+      <%= f.label :attending_day1, "Will you be attending Day 1 of Blueprint?" %>
+      <%= f.select :attending_day1, booleans %>
     </div>
-    <div class="description">
-      <%= current_hacker.name %>
-    </div>
+
+  <% end %>
+
+  <div class="field">
+    <%= f.label :attending, "Will you be attending Day 2 of Blueprint?" %>
+    <%= f.select :attending, booleans %>
   </div>
 
-  <div class="item">
-    <div class="header">
-      (Cell) Phone Number
-    </div>
-    <div class="description">
-      <%= current_hacker.phone %>
-    </div>
+  <div class="field">
+    <%= f.label :orientation, "Which mentor orientation will you be attending?" %>
+    <%= f.select :orientation, orientations %>
   </div>
 
-  <div class="item">
-    <div class="header">
-      University/Place of Work
-    </div>
-    <div class="description">
-      <%= current_hacker.school %>
-    </div>
+  <div class="field">
+    <%= f.label :judging, "Are you willing to be a judge for the hackathon?" %>
+    <%= f.select :judging, booleans %>
   </div>
 
-  <div class="item">
-    <div class="header">
-      Graduation Year
-    </div>
-    <div class="description">
-      <%= (current_hacker.year == 0) ? "N/A" : current_hacker.year %>
-    </div>
+  <div class="field">
+    <%= f.submit ((current_hacker.status <= 4) ? "Submit form!" : "Submit changes!"), class: 'ui fluid yellow button' %>
   </div>
 
-  <div class="item">
-    <div class="header">
-      Day 1?
-    </div>
-    <div class="description">
-      <% if current_hacker.availability.include?(0) %>
-      <i class="check icon"></i>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      Day 2?
-    </div>
-    <div class="description">
-      <% if current_hacker.availability.include?(1) %>
-      <i class="check icon"></i>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      Shirt Size
-    </div>
-    <div class="description">
-      <%= current_hacker.shirt_size %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      Dietary Restrictions
-    </div>
-    <div class="description">
-      <%= current_hacker.dietary_restrictions %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      What are you experienced in?
-    </div>
-    <div class="description">
-      <%= current_hacker.interests.join(", ") %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      Describe your previous mentoring experience, if any.
-    </div>
-    <div class="description">
-      <%= current_hacker.experience %>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="header">
-      Why do you want to mentor at blueprint?
-    </div>
-    <div class="description">
-      <%= current_hacker.desire %>
-    </div>
-  </div>
+  <% end %>
 </div>
+
+<% end %>

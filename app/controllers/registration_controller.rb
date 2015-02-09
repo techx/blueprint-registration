@@ -20,7 +20,7 @@ class RegistrationController < ApplicationController
   end
 
   def application_if_not_applied
-    redirect_to apply_url if current_hacker.status == 0
+    redirect_to info_url if current_hacker.status <= 4
   end
 
   #### VIEW METHODS ####
@@ -45,8 +45,22 @@ class RegistrationController < ApplicationController
   end
 
   #show application page
-  def apply
+  def info
 
+  end
+
+  def update_info
+    current_hacker.assign_attributes(hacker_params)
+    current_hacker.emergency_info = params["hacker"]["emergency_info"]
+    if not_allowed_empty
+      flash[:alert] = "You must fill in all fields"
+      render "info"
+    else
+      current_hacker.status += 3 if current_hacker.status <= 4
+      current_hacker.save!
+      flash[:notice] = "Success! Your form has been saved"
+      redirect_to status_url
+    end
   end
 
   def team_view
@@ -55,8 +69,12 @@ class RegistrationController < ApplicationController
 
   private
 
+  def not_allowed_empty
+    (hacker_params.values.include?("") or (current_hacker.emergency_info.try(:values) || []).include?("")) and (hacker_params["attending"] == "true" or hacker_params["attending_day1"] == "true")
+  end
+
   def hacker_params
-    params.require(:hacker).permit(:mentor, :first_name, :last_name, :phone, :school, :year, :emergency_info, :availability, :shirt_size, :dietary_restrictions, :interests, :team_code, :desire, :experience, :gender)
+    params.require(:hacker).permit(:attending_day1, :attending, :laptop_type, :phone_type, :experience_level, :first_choice, :second_choice, :third_choice, :emergency_info, :orientation, :judging)
   end
 
 end

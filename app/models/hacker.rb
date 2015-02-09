@@ -20,34 +20,6 @@ class Hacker < ActiveRecord::Base
     Hacker.where(team_code: team_code)
   end
 
-  def gender_full
-    {
-      "male" => "Male",
-      "female" => "Female",
-      "no_answer" => "Prefer not to answer"
-    }[gender]
-  end
-
-  def full_status
-    {
-      0 => {
-        impression: "negative",
-        title: "Submit your application!",
-        text: "You've created your account, and didn't submit anything before the deadline. Registration has now closed, but maybe we'll see you next year.",
-      },
-      1 => {
-        impression: "neutral",
-        title: "Application Submitted!",
-        text: "Your application has been submitted, and is under review. Please wait until Febuary 9th for our decision.",
-      },
-      100 => {
-        impression: "positive",
-        title: "Welcome to Blueprint!",
-        text: "If you're reading this, you've been accepted as a teacher at Blueprint. If you're a returner, we welcome you back, and if you're new, we hope you enjoy teaching to some eager minds. More details will follow as we get closer to the event, so stay tuned!",
-      }
-    }[status]
-  end
-
   def get_error
     error = false
     error = 'You must answer all short response questions.' if desire.length == 0 or experience.length == 0

@@ -1,22 +1,40 @@
-<div class="title">
-  <%= current_hacker.full_status[:title] %>
-</div>
+<h1 class="ui header">Thanks!</h1>
 
-<div>
-  <%= current_hacker.full_status[:text] %>
-</div><br />
+<% if current_hacker.mentor? %>
 
-<div>
-  You applied as a <%= current_hacker.mentor? ? "mentor" : "hacker" %>.
-</div><br />
+<p>Thanks for submitting your form! You can edit your information until <b>February 10th at 11:59pm EST.</b></p>
 
-<div>
-  Registration has closed! We'll get back to you on <b>February 9th</b> with our decision!
-</div><br />
+<p>Remember, if you live near MIT, you must attend one of our two mentor orientations on February 11th at 6 pm in room 4-149 in Building 4 or February 12th at 6 pm in room 3-442 in Building 3.</p>
 
-<%= link_to('View application', apply_path, class: 'ui blue button') %>
-<% if current_hacker.team_available? %>
-  <%= link_to('View Team', team_path, class: 'ui yellow button') %>
+<p><b>Don’t forget to send your completed code of conduct form to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>.</b></p>
+
+<p>Keep an eye out for Facebook posts and email updates as Blueprint approaches! If you have any questions, please email us at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>—we don’t bite!</p>
+
+<p><%= link_to "Code of Conduct Form", '/code_of_conduct.pdf', target: "_blank" %><br />
+<%= link_to "Conduct and Photo Release Form", '/photo_release_mentors.pdf', target: "_blank" %></p>
+
+<% else %>
+
+<p>Thanks for submitting your form! You can edit your information until <b>February 11th at 11:59pm EST</b> to confirm your attendance for the hackathon.</p>
+
+<p><b>Remember to email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>.</b></p>
+
+<p>Keep an eye out for Facebook posts and email updates as Blueprint approaches! If you have any questions, please email us at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>—we don’t bite!</p>
+
+<p style="text-align: center;"><%= link_to "Liability Form", '/liability.pdf', target: "_blank" %><br />
+<%= link_to "Medical Release Form", '/parental_medical_form.pdf', target: "_blank" %><br />
+<%= link_to "Conduct and Photo Release Form", '/photo_release_hackers.pdf', target: "_blank" %></p>
+
 <% end %>
-<br>
-<%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
+
+<% if current_hacker.have_forms? %>
+<div class="ui green message">We have received your forms. You are good to go!</div>
+<% else %>
+<div class="ui red message">We haven't yet received your forms. If you've already sent us an email, don't worry - it takes us time to process the emails.</div>
+<% end %>
+
+<div>
+  <%= link_to('View confirmation form', info_path, class: 'ui blue button') %>
+  <br>
+  <%= link_to('Logout', destroy_hacker_session_path, :method => :delete) %>
+</div>

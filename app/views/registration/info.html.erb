@@ -1,8 +1,10 @@
+<% if current_hacker.status > 4 %>
 <br />
 <p style="text-align: center;">
-  <a href="<%= status_path%>">
+  <a href="<%= status_path %>">
     &#8592; Back
   </a>
 </p>
+<% end %>
 
 <%= render (current_hacker.mentor? ? "mentor_apply" : "hacker_apply") %>
