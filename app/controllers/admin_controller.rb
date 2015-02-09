@@ -23,11 +23,11 @@ class AdminController < ApplicationController
   end
 
   def hackers
-    @hackers = Hacker.select(:id, :first_name, :last_name, :email, :have_forms).where(mentor: false, status: 1..1000000).where(sanitized_search_params).order(:first_name)
+    @hackers = Hacker.select(:id, :first_name, :last_name, :email, :have_forms, :attending, :attending_day1, :status).where(mentor: false, status: 1..1000000).where(sanitized_search_params).order(:first_name)
   end
 
   def mentors
-    @mentors = Hacker.select(:id, :first_name, :last_name, :email, :have_forms).where(mentor: true, status: 1..10000000).where(sanitized_search_params).order(:first_name)
+    @mentors = Hacker.select(:id, :first_name, :last_name, :email, :have_forms, :attending, :attending_day1, :status).where(mentor: true, status: 1..10000000).where(sanitized_search_params).order(:first_name)
   end
 
   def view
