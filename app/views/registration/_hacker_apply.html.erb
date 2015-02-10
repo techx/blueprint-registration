@@ -1,9 +1,10 @@
 <% if current_hacker.status == 2 or current_hacker.status == 5 %>
   <h1 class="ui header"> Welcome! </h1>
-  <p> Congratulations! You’ve been accepted into Blueprint for <b>both days!</b> Please fill out the following form by <b>February 11th at 11:59 pm EST</b> to confirm your attendance for the learnathon and hackathon. You must also email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>. </p>
+  <p> Congratulations! You’ve been accepted into Blueprint for <strong>both days!</strong> Please fill out the following form by <strong>February 11th at 11:59 pm EST</strong> to confirm your attendance for the learnathon and hackathon. You must also email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>. </p>
 <% elsif current_hacker.status == 3 or current_hacker.status == 6 %>
   <h1 class="ui header"> Welcome! </h1>
-  <p> We couldn’t offer you a spot for day 1, but you’ve been accepted into Blueprint for <b>day 2!</b> Please fill out the following form by <b>February 11th at 11:59 pm EST</b> to confirm your attendance for the hackathon. You must also email your completed liability, medical release, and photo release forms to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>. </p>
+  <p> We couldn’t offer you a spot for day 1, but you’ve been accepted into Blueprint for <strong>day 2!</strong> Please fill out the following form by <strong>February 11th at 11:59 pm EST</strong> to confirm your attendance for the hackathon.</p>
+  <p><strong>You must also email your completed liability, medical release, and photo release forms scanned as a single PDF to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>.</strong> </p>
 <% end %>
 
 <%= link_to "Liability Form", '/liability.pdf', target: "_blank" %><br />
