@@ -2,7 +2,6 @@
 <p>
 <% if current_hacker.status == 2 or current_hacker.status == 5 %>
   Congratulations! You’ve been accepted into Blueprint for <strong>both days!</strong>
-  <p><strong>You must also email your completed liability, medical release, and photo release forms scanned as a single PDF to <a href="mailto:forms@hackmit.org">forms@hackmit.org</a>.</strong></p>
 <% elsif current_hacker.status == 3 or current_hacker.status == 6 %>
   We couldn’t offer you a spot for day 1, but you’ve been accepted into Blueprint for <strong>day 2!</strong>
 <% end %>
