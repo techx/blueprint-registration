@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   get "hacker/sign_up" => "registration#hacker_sign_up", as: :hacker_sign_up
   get "mentor/sign_up" => "registration#mentor_sign_up", as: :mentor_sign_up
   get "info" => "registration#info"
-  post "info" => "registration#update_info"
   get "status" => "registration#status"
   get "team" => "registration#team_view", as: :team
 

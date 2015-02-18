@@ -4,6 +4,7 @@ class RegistrationController < ApplicationController
   before_filter :status_if_logged_in, only: [:home, :hacker_sign_up, :mentor_sign_up]
   before_filter :status_unless_team_available, only: [:team_view, :team_leave, :team_join]
   before_filter :application_if_not_applied, only: [:status]
+  before_filter :status_if_applied, only: [:team_view, :info]
 
   #### FILTERS ####
 
@@ -21,6 +22,10 @@ class RegistrationController < ApplicationController
 
   def application_if_not_applied
     redirect_to info_url if current_hacker.status <= 4
+  end
+
+  def status_if_applied
+    redirect_to status_url if current_hacker.status > 4
   end
 
   #### VIEW METHODS ####

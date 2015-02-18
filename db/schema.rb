@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209003752) do
+ActiveRecord::Schema.define(version: 20150218062729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,11 @@ ActiveRecord::Schema.define(version: 20150209003752) do
     t.boolean  "have_forms"
     t.boolean  "attending_day1"
     t.integer  "orientation"
-    t.boolean  "judging"
+    t.boolean  "judging",                default: false
+    t.string   "track_name"
+    t.string   "mentor_group"
+    t.string   "mentor_name"
+    t.string   "mentor_email"
   end
 
   add_index "hackers", ["email"], name: "index_hackers_on_email", unique: true, using: :btree
