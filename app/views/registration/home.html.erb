@@ -1,32 +1,6 @@
 
 <div class="title">
-  Sign In
+  Thanks for coming!
 </div>
 
-<div class="ui form">
-  <%= form_for(resource, as: resource_name, url: session_path(resource)) do |f| %>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <div class="ui checkbox">
-        <%= f.check_box :remember_me, id: 'remember_me' %>
-        <%= f.label :remember_me, for:'remember_me'%>
-      </div>
-    </div>
-    <div class="field">
-      <%= f.submit 'Sign in', class: 'ui fluid yellow button' %>
-    </div>
-
-    <p>
-      <%= link_to "Forgot your password?", start_password_reset_path %>
-    </p>
-  <% end %>
-</div>
+<p style="text-align: center">We hope to see you guys next year!</p>
